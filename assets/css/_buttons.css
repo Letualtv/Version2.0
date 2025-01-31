@@ -1,0 +1,44 @@
+/* Botones */
+
+.btn-primary {
+    background-color: #af071f; /* Tu color */
+    border-color: #af071f; /* Color del borde */
+}
+
+.btn-primary:hover {
+    background-color: #9e0624; /* Hacerlo un poco más oscuro en hover */
+    border-color: #9e0624;
+}
+
+.btn-primary:focus {
+    background-color: #9e0624 !important;
+    border-color: #9e0624 !important;
+    outline: none;
+    color: white !important;
+}
+
+.btn-primary:active {
+    background-color: #af071f !important;
+    border-color: #af071f !important;
+    outline: none;
+}
+
+/* Quitar flechas de subir y bajar de inputs numéricos */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Links generales */
+a {
+    color: #af071f;
+}
+
+a:hover {
+    color: #d3122a; /* lighten(#af071f, 10%) */
+}

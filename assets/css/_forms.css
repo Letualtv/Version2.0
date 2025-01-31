@@ -1,0 +1,43 @@
+// checkbox y radios
+
+
+// Cambiar el color del borde del checkbox o radio
+.form-check-input {
+    border-color: $colorRojo; 
+  }
+  
+  // Cambiar el color de fondo cuando el checkbox o radio está marcado
+  .form-check-input:checked {
+    background-color: $colorRojo; 
+    border-color: $colorRojo; 
+  }
+  
+  // Cambiar el color de los bordes cuando el radio/checkbox tiene foco
+  .form-check-input:focus {
+    border-color: $colorRojo;  
+    box-shadow: 0 0 0 0.25rem rgba(175,7,31, 0.25);  // Sombra de foco
+
+  }
+  // Color del enfásis en text input
+  .form-control:focus {
+    border-color: $colorRojo;  
+    box-shadow: 0 0 0 0.25rem rgba(175,7,31, 0.25);  // Sombra de foco
+  }
+    // color de los bordes de las tarjetas
+  .card-body, .card-footer, .card {
+    border-color: $colorGris !important;  // Azul para foco
+  }
+
+  // Color de dropdowns
+  select option {
+    background-color: #ffffff; /* Fondo del dropdown */
+    color: #333; /* Color del texto */
+    padding: 10px; /* Espaciado */
+}
+
+select option:hover {
+    background-color: red "!important"; /* Fondo al pasar el mouse */
+    color: #fff; /* Color del texto al pasar el mouse */
+}
+
+$form-select-bg:  red ;

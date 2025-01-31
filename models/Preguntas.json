@@ -1,0 +1,815 @@
+[
+    {
+        "id": "1",
+        "n_pag": 1,
+        "tipo": "radio",
+        "titulo": "Pregunta de prueba",
+        "subTitulo": "Subtitulo predefinido",
+        "opciones": {
+            "1": "S\u00ed, trabajo actualmente en esta instituci\u00f3n",
+            "2": "He trabajado, pero estoy jubilado o no activo",
+            "3": "He trabajado, pero ahora trabajo en otro lugar",
+            "4": "Soy o he sido alumno\/a, pero no trabajador\/a",
+            "5": "No he trabajado ni he sido alumno\/a de esta instituci\u00f3n"
+        }
+    },
+    {
+        "id": 2,
+        "n_pag": 2,
+        "tipo": "numberInput",
+        "titulo": "Pregunta 2: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
+        "subTitulo": "Marca todos los lenguajes que dominas.",
+        "opciones": {
+            "1": "Indicar a\u00f1o:",
+            "88": "No me acuerdo",
+            "99": "No deseo contestar"
+        },
+        "valores": {
+            "min": 1950,
+            "max": "<?php echo date('Y'); ?>",
+            "placeholder": "AAAA"
+        }
+    },
+    {
+        "id": 3,
+        "n_pag": 3,
+        "tipo": "checkbox",
+        "titulo": "\u00bfCu\u00e1l es su \u00e1rea de conocimiento principal?",
+        "subTitulo": "(Por favor, elija la que tenga m\u00e1s correspondencia con su situaci\u00f3n)",
+        "opciones": {
+            "1": "No estaba interesado\/a en el trabajo",
+            "2": "No ten\u00eda posibilidad de continuar en esa instituci\u00f3n",
+            "3": "Oportunidades laborales muy limitadas en el campo de la investigaci\u00f3n",
+            "4": "Mejores oportunidades de desarrollo profesional",
+            "5": "Falta de estructura para el desarrollo de la carrera investigadora",
+            "6": "Trabajar en un lugar con mayor reconocimiento y prestigio",
+            "7": "Mejora de las condiciones laborales",
+            "8": "Ambiente de trabajo",
+            "9": "Obligaci\u00f3n de movilidad a otra instituci\u00f3n",
+            "10": "Baja remuneraci\u00f3n",
+            "11": "Malas condiciones laborales",
+            "12": "Falta de reconocimiento p\u00fablico a la investigaci\u00f3n",
+            "13": "Incertidumbre sobre las perspectivas profesionales a largo plazo",
+            "14": "Conciliaci\u00f3n, cuidado u otras responsabilidades familiares",
+            "15": "Motivos personales",
+            "16": "Otros"
+        }
+    },
+    {
+        "id": 4,
+        "n_pag": 4,
+        "tipo": "formSelect",
+        "titulo": "Pregunta 4: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
+        "subTitulo": "Marca todos los lenguajes que dominas.",
+        "opciones": {
+            "1": {
+                "label": "En una universidad en Espa\u00f1a",
+                "subLabel": {
+                    "11": "Universidad Espa\u00f1ola 1",
+                    "12": "Universidad Espa\u00f1ola 2",
+                    "13": "Universidad Espa\u00f1ola 3",
+                    "14": "Universidad Espa\u00f1ola 4",
+                    "15": "Universidad Espa\u00f1ola 5",
+                    "16": "Universidad Espa\u00f1ola 6",
+                    "17": "Universidad Espa\u00f1ola 7",
+                    "18": "Universidad Espa\u00f1ola 8",
+                    "19": "Universidad Espa\u00f1ola 9",
+                    "111": "Otra universidad"
+                }
+            },
+            "2": {
+                "label": "En un centro de investigaci\u00f3n en Espa\u00f1a (incluyendo hospitales y centros privados)",
+                "subLabel": {
+                    "21": "Universidad Espa\u00f1ola 1",
+                    "22": "Universidad Espa\u00f1ola 2",
+                    "23": "Universidad Espa\u00f1ola 3",
+                    "24": "Universidad Espa\u00f1ola 4",
+                    "25": "Universidad Espa\u00f1ola 5",
+                    "26": "Universidad Espa\u00f1ola 6",
+                    "27": "Universidad Espa\u00f1ola 7",
+                    "28": "Universidad Espa\u00f1ola 8",
+                    "29": "Universidad Espa\u00f1ola 9",
+                    "221": "Otra universidad"
+                }
+            },
+            "4": {
+                "label": "En una empresa"
+            },
+            "5": {
+                "label": "En otra administraci\u00f3n p\u00fablica (sin actividad de investigaci\u00f3n)"
+            },
+            "6": {
+                "label": "En una instituci\u00f3n privada sin \u00e1nimo de lucro (sin actividad de investigaci\u00f3n)"
+            },
+            "7": {
+                "label": "Trabajo por cuenta propia"
+            },
+            "8": {
+                "label": "Estoy desempleado\/a"
+            },
+            "9": {
+                "label": "Otros"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "n_pag": 5,
+        "tipo": "formSelect",
+        "titulo": "Pregunta 5: \u00bfCu\u00e1l es tu puesto o rol en tu entorno laboral o acad\u00e9mico?",
+        "subTitulo": "Selecciona tu puesto actual.",
+        "opciones": {
+            "1": {
+                "label": "Profesorado de universidad",
+                "subLabel": {
+                    "11": "Catedr\u00e1tico\/a",
+                    "12": "Profesor\/a titular",
+                    "13": "Profesor\/a contratado\/a, doctor\/a o permanente laboral",
+                    "14": "Profesor\/a ayudante doctor\/a",
+                    "15": "Profesor\/a ayudante",
+                    "16": "Profesor\/a asociado\/a",
+                    "17": "Profesor\/a colaborador\/a",
+                    "18": "Profesor\/a sustituto\/a, suscrito\/a interino\/a o similar",
+                    "19": "Otros profesores\/as de universidad"
+                }
+            },
+            "2": {
+                "label": "Investigadores\/as de plantilla de centros p\u00fablicos de investigaci\u00f3n",
+                "subLabel": {
+                    "21": "Profesor\/a de investigaci\u00f3n de OPI",
+                    "22": "Investigador\/a cient\u00edfico\/a de OPI",
+                    "23": "Cient\u00edfico\/a titular de OPI",
+                    "24": "Investigadores\/as de plantilla de otros centros p\u00fablicos de investigaci\u00f3n"
+                }
+            },
+            "3": {
+                "label": "Investigadores\/as contratados\/as",
+                "subLabel": {
+                    "31": "Investigador\/a contratado\/a a cargo de programa posdoctoral (fases iniciales)",
+                    "32": "Investigador\/a contratado\/a a cargo de programa posdoctoral (fases avanzadas)",
+                    "33": "Investigador\/a contratado\/a doctor\/a (a cargo de proyecto o similar)"
+                }
+            },
+            "4": {
+                "label": "Tecn\u00f3logos\/as o t\u00e9cnicos\/as de investigaci\u00f3n",
+                "subLabel": {
+                    "41": "Tecn\u00f3logo\/a o t\u00e9cnico\/a de investigaci\u00f3n de plantilla (titulado superior especializado o similar)",
+                    "42": "Tecn\u00f3logo\/a o t\u00e9cnico\/a de investigaci\u00f3n contratado (a cargo de proyecto o similar)"
+                }
+            },
+            "5": {
+                "label": "Investigadores\/as en formaci\u00f3n y becarios\/as",
+                "subLabel": {
+                    "51": "Investigador\/a predoctoral en formaci\u00f3n (contratos FPI, FPU o similares)",
+                    "52": "Becario\/a u otro puesto formativo remunerado"
+                }
+            },
+            "6": {
+                "label": "Personal de administraci\u00f3n y servicios o similar",
+                "subLabel": {
+                    "61": "Grupo 1: Titulado universitario superior",
+                    "62": "Grupo 2: Titulado universitario de grado medio o similar",
+                    "63": "Grupo 3: T\u00e9cnico especialista (bachiller, FP superior o equivalente)",
+                    "64": "Grupo 4: Oficiales y auxiliares (graduado en educaci\u00f3n secundaria, t\u00e9cnico de FP, educaci\u00f3n primaria, etc)"
+                }
+            }
+        }
+    },
+    {
+        "id": 6,
+        "n_pag": 6,
+        "tipo": "checkbox",
+        "titulo": "\u00bfCu\u00e1l es su \u00e1rea de conocimiento principal?",
+        "subTitulo": "(Por favor, elija la que tenga m\u00e1s correspondencia con su situaci\u00f3n)",
+        "opciones": {
+            "1": "F\u00edsica, qu\u00edmica y matem\u00e1ticas",
+            "2": "Ciencias de la salud",
+            "3": "Ciencias de la vida y del medio ambiente",
+            "4": "Ingenier\u00edas y arquitectura",
+            "5": "Ciencias Sociales, del comportamiento y ciencias Jur\u00eddicas",
+            "6": "Artes y Humanidades",
+            "7": "Interdisciplinar y otras"
+        }
+    },
+    {
+        "id": 7,
+        "n_pag": 7,
+        "tipo": "radio",
+        "titulo": "\u00bfCu\u00e1l es su \u00e1rea de conocimiento principal?",
+        "subTitulo": "(Por favor, elija la que tenga m\u00e1s correspondencia con su situaci\u00f3n)",
+        "opciones": {
+            "1": "Administraci\u00f3n, asuntos jur\u00eddicos o presupuestarios",
+            "2": "Archivos, bibliotecas o similares",
+            "3": "Inform\u00e1tica y telecomunicaciones",
+            "4": "Obras, instalaciones, mantenimiento, seguridad",
+            "5": "\u00c1reas tecnol\u00f3gicas o cient\u00edficas especializadas",
+            "6": "Otros"
+        }
+    },
+    {
+        "id": 8,
+        "n_pag": 8,
+        "tipo": "matrix1",
+        "titulo": "Valore su entorno de trabajo habitual m\u00e1s cercano (departamento, \u00e1rea, facultad, etc) en {{ getInstitutionName() }} en los siguientes aspectos:",
+        "opciones": {
+            "8": "Inflexible - Flexible",
+            "9": "Hostil - Amigable",
+            "10": "Rutinario - Creativo",
+            "11": "No meritocr\u00e1tico - Meritocr\u00e1tico",
+            "12": "No competitivo - Competitivo",
+            "13": "Estresante - Relajado",
+            "14": "Discriminador - Inclusivo"
+        }
+    },
+    {
+        "id": 15,
+        "n_pag": 9,
+        "tipo": "matrix2",
+        "titulo": "Para cada una de las siguientes frases, por favor elija la respuesta que mejor describe su situaci\u00f3n en el trabajo en esta instituci\u00f3n.",
+        "opciones": {
+            "15": "Tengo la capacidad para influir en decisiones que son importantes para mi trabajo",
+            "16": "Estoy satisfecho\/a con el nivel de promoci\u00f3n que he logrado en mi carrera",
+            "17": "Estoy contento\/a con el salario que recibo",
+            "18": "Tengo claras mis funciones y responsabilidades"
+        },
+        "encabezado2": {
+            "label": "La promoci\u00f3n en { getInstitutionName() } depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 19,
+        "n_pag": 10,
+        "tipo": "matrix2",
+        "titulo": "A continuaci\u00f3n, le vamos a exponer algunas situaciones sobre <b>el acceso<\/b> a esta instituci\u00f3n, referidas a <b>la primera<\/b> vez que se comienza trabajar en cualquier modalidad. Indique su grado de acuerdo con cada una de ellas.",
+        "opciones": {
+            "19": "... del <b>prestigio cient\u00edfico o profesional externo<\/b> (el reconocimiento general en una especialidad o trayectoria).",
+            "20": "... de la <b>capacidad de adaptarse<\/b> bien a las necesidades del lugar de trabajo (equipo, departamento, etc,)",
+            "21": "... de <b>contactos y relaciones<\/b> con las personas que ya trabajan en ella.",
+            "22": "... de la capacidad para <b>superar una oposici\u00f3n o prueba<\/b> selectiva desde el inicio."
+        },
+        "encabezado2": {
+            "label": "La promoci\u00f3n en { getInstitutionName() } depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 23,
+        "n_pag": 11,
+        "tipo": "matrix2",
+        "titulo": "Y ahora le vamos a exponer algunas situaciones sobre la <b>promoci\u00f3n dentro de esta instituci\u00f3n<\/b>, es decir, el cambio a un puesto de trabajo mejor o m\u00e1s estable.",
+        "opciones": {
+            "23": "... del <b>prestigio cient\u00edfico o profesional<\/b> externo (el reconocimiento general en una especialidad o trayectoria).",
+            "24": "... de la <b>capacidad de adaptarse<\/b> bien a las necesidades del lugar de trabajo (equipo, departamento, etc,)",
+            "25": "... de <b>contactos y relaciones<\/b> con las personas que ya trabajan en ella.",
+            "26": "... de la capacidad para <b>superar una oposici\u00f3n o prueba selectiva<\/b>."
+        },
+        "encabezado2": {
+            "label": "La promoci\u00f3n en { getInstitutionName() } depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 27,
+        "n_pag": 12,
+        "tipo": "matrix3",
+        "titulo": "A continuaci\u00f3n le vamos a nombrar una serie de actividades que pueden producirse en <b>{{ getInstitutionName() }}<\/b>. \u00bfQu\u00e9 grado de <b>importancia<\/b> tiene en su <b>carga de trabajo habitual<\/b>? y, \u00bfQu\u00e9 grado de <b>importancia<\/b> tienen para <b>su promoci\u00f3n profesional<\/b>?",
+        "opciones": {
+            "27": "Carga de trabajo habitual",
+            "28": "Promoci\u00f3n profesional",
+            "29": "Carga de trabajo habitual",
+            "30": "Promoci\u00f3n profesional",
+            "31": "Carga de trabajo habitual",
+            "32": "Promoci\u00f3n profesional",
+            "33": "Carga de trabajo habitual",
+            "34": "Promoci\u00f3n profesional"
+        },
+        "subOpciones": {
+            "1": "<b>Docencia<\/b> universitaria.",
+            "2": "<b>Publicaciones cient\u00edficas<\/b> de car\u00e1cter acad\u00e9mico",
+            "3": "... de <b>contactos y relaciones<\/b> con las personas que ya trabajan en ella.",
+            "4": "... de la capacidad para <b>superar una oposici\u00f3n o prueba selectiva<\/b>."
+        },
+        "encabezado2": {
+            "label": "La promoci\u00f3n en { getInstitutionName() } depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 35,
+        "n_pag": 13,
+        "tipo": "matrix2",
+        "titulo": "Indique si, en general, est\u00e1 de acuerdo o en desacuerdo con cada una de las siguientes afirmaciones:",
+        "opciones": {
+            "35": "Esta instituci\u00f3n tiene una <b>misi\u00f3n clara<\/b> y unos <b>objetivos definidos<\/b>",
+            "36": "Esta instituci\u00f3n cumple los <b>Prop\u00f3sitos para los que fue creada<\/b>",
+            "37": "Considero que un funcionamiento adecuado de la instituci\u00f3n es <b>esencial para el entorno<\/b> en el que se encuentra",
+            "38": "Hay una <b>buena cooperaci\u00f3n<\/b> entre esta instituci\u00f3n y <b>la administraci\u00f3n<\/b> de la que depende"
+        },
+        "encabezado2": {
+            "label": "La promoci\u00f3n en { getInstitutionName() } depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 39,
+        "n_pag": 14,
+        "tipo": "matrix2",
+        "titulo": "A continuaci\u00f3n, le vamos a nombrar una serie de posibles  <b>resultados o impactos<\/b> de esta instituci\u00f3n en el <b>exterior<\/b>. Seg\u00fan su criterio, \u00bfc\u00f3mo de importante es el beneficio o impacto que tiene realmente en la sociedad?",
+        "opciones": {
+            "39": "Mejora las <b>capacidades laborales de las personas<\/b> y su <b>empleabilidad<\/b>",
+            "40": "Producir <b>nuevo conocimiento<\/b> de calidad (de acuerdo con est\u00e1ndares internacionales)",
+            "41": "Considero que un funcionamiento adecuado de la instituci\u00f3n es <b>esencial para el entorno<\/b> en el que se encuentra",
+            "42": "La transferencia a las <b>empresas<\/b>",
+            "43": "La transferencia a la <b>administraci\u00f3n<\/b> y a las <b>pol\u00edticas p\u00fablicas<\/b>",
+            "44": "El desarrollo del <b>entorno local<\/b> o <b>regional<\/b> (en forma de fuentes de riqueza en el territorio y empleo)",
+            "45": "El aumento de la <b>cohesi\u00f3n social<\/b> (igualdad social, de oportunidades, etc.)"
+        },
+        "encabezado2": {
+            "label": "La importancia de la instituci\u00f3n en el exterior depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 46,
+        "n_pag": 15,
+        "tipo": "matrix2",
+        "titulo": "A continuaci\u00f3n, le vamos a nombrar una serie de posibles  <b>resultados o impactos<\/b> de esta instituci\u00f3n en el <b>exterior<\/b>. Seg\u00fan su criterio, \u00bfc\u00f3mo de importante es el beneficio o impacto que tiene realmente en la sociedad?",
+        "opciones": {
+            "46": "Mejora las <b>capacidades laborales de las personas<\/b> y su <b>empleabilidad<\/b>",
+            "47": "Producir <b>nuevo conocimiento<\/b> de calidad (de acuerdo con est\u00e1ndares internacionales)",
+            "48": "La transferencia a la <b>administraci\u00f3n<\/b> y a las <b>pol\u00edticas p\u00fablicas<\/b>",
+            "49": "La transferencia a las <b>empresas<\/b>",
+            "50": "El aumento de la <b>cultura<\/b> cient\u00edfica y el conocimiento en general de la <b>ciudadan\u00eda<\/b>",
+            "51": "El desarrollo del <b>entorno local<\/b> o <b>regional<\/b> (en forma de fuentes de riqueza en el territorio y empleo)",
+            "52": "El aumento de la <b>cohesi\u00f3n social<\/b> (igualdad social, de oportunidades, etc.)"
+        },
+        "encabezado2": {
+            "label": "La importancia de la instituci\u00f3n en el exterior depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 53,
+        "n_pag": 16,
+        "tipo": "matrix2",
+        "titulo": "A continuaci\u00f3n, le vamos a nombrar una serie de posibles  <b>resultados o impactos<\/b> de esta instituci\u00f3n en el <b>exterior<\/b>. Seg\u00fan su criterio, \u00bfc\u00f3mo de importante es el beneficio o impacto que tiene realmente en la sociedad?",
+        "opciones": {
+            "53": "...la utilizaci\u00f3n de <b>nuevas tecnolog\u00edas de la informaci\u00f3n<\/b> (inform\u00e1tica, comunicaciones y tecnolog\u00edas relacionadas)",
+            "54": "...el empleo de <b>procedimientos de organizaci\u00f3n y trabajo<\/b> actualizados",
+            "55": "...<b>instrumental tecnol\u00f3gico especializado<\/b> necesario para llevar a cabo nuestro trabajo",
+            "56": "...nuevos m\u00e9todos para organizar las <b>relaciones externas<\/b> con otros organismos o empresas (alianzas para realizar actividades, nuevos m\u00e9todos para subcontratar, para trabajar con proveedores, etc.)"
+        },
+        "encabezado2": {
+            "label": "La importancia de la instituci\u00f3n en el exterior depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 57,
+        "n_pag": 17,
+        "tipo": "numberInput",
+        "titulo": "\u00bfQu\u00e9 porcentaje de su trabajo suele dedicar a <b>procedimientos administrativos y de gesti\u00f3n<\/b>?",
+        "subTitulo": "(Por favor, indique el <b>porcentaje aproximado<\/b> de su tiempo de trabajo en general, teniendo en cuenta todos los procedimientos de gesti\u00f3n y regulaciones <b>de obligado cumplimiento<\/b>)",
+        "opciones": {
+            "1": "Porcentaje:",
+            "88": "No me acuerdo",
+            "99": "No deseo contestar"
+        },
+        "valores": {
+            "min": 0,
+            "max": "100",
+            "placeholder": "0-100%"
+        }
+    },
+    {
+        "id": 58,
+        "n_pag": 18,
+        "tipo": "matrix1",
+        "titulo": "De las siguientes caracter\u00edsticas relacionadas con los procedimientos administrativos en {{ getInstitutionName() }}, indique c\u00f3mo valora cada una de ellas.",
+        "opciones": {
+            "58": "Engorrosos - F\u00e1ciles",
+            "59": "Innecesarios - Necesarios",
+            "60": "Inefectivos - Efectivos"
+        }
+    },
+    {
+        "id": 61,
+        "n_pag": 19,
+        "tipo": "matrix2",
+        "titulo": "\u00bfY como valora la carga burocr\u00e1tica?",
+        "opciones": {
+            "61": "La que es responsabilidad de   $getInstitutionName()  ",
+            "62": "La que procede de <b>otros organismos<\/b> (Convocatorias de proyectos, infraestructuras, evaluaciones externas, etc.)"
+        },
+        "encabezado2": {
+            "label": "La importancia de la instituci\u00f3n en el exterior depende...",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 63,
+        "n_pag": 20,
+        "tipo": "matrix2",
+        "titulo": "Para cada una de las isguientes frases, elija aquella respuesta que mejor describe la situaci\u00f3n en {{ getInstitutionName() }}",
+        "opciones": {
+            "63": "La mayor\u00eda de los <b>cargos directivos<\/b> trabajan de acuerdo con los objetivos de la instituci\u00f3n",
+            "64": "La <b>gesti\u00f3n<\/b> de los recursos econ\u00f3micos de la instituci\u00f3n (contratos, compras, distribuci\u00f3n de recursos,etc.) se realizan de manera <b>transparente.<\/b>",
+            "65": "La mayor\u00eda de <b>los\/as trabajadores\/as<\/b> trabajan de acuerdo con los objetivos de la instituci\u00f3n",
+            "66": "La mayor\u00eda de <b>los\/as trabajadores\/as<\/b> se esfuerzan por mejorar la calidad de los servicios y beneficiar a los usuarios."
+        },
+        "encabezado2": {
+            "label": "",
+            "uno": {
+                "1": "Muy en desacuerdo"
+            },
+            "dos": {
+                "7": "Muy de acuerdo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 67,
+        "n_pag": 21,
+        "tipo": "matrix2",
+        "titulo": "Para cada una de las isguientes frases, elija aquella respuesta que mejor describe la situaci\u00f3n en {{ getInstitutionName() }}",
+        "opciones": {
+            "67": "<b>Sindicatos<\/b>",
+            "68": "La <b>Asociaciones profesionales<\/b> o similares",
+            "69": "Cuadros intermedios o <b>directivos intermedios.<\/b>",
+            "70": "<b>Tecnicos especialistas<\/b> (en inform\u00e1tica, instrumental especializado, etc.)",
+            "71": "Grupos de una determinada <b>disciplina o especialidad cient\u00edfica<\/b>",
+            "72": "Grupos de <b>personal administrativo<\/b> o de servicios",
+            "73": "Grupos de una determinada <b>ideolog\u00eda, tenedencia pol\u00edtica o religi\u00f3n<\/b>"
+        },
+        "encabezado2": {
+            "label": "",
+            "uno": {
+                "1": "No tienen ninguna influencia en la instituci\u00f3n"
+            },
+            "dos": {
+                "7": "Condicionan totalmente a la instituci\u00f3n"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 74,
+        "n_pag": 22,
+        "tipo": "matrix2",
+        "titulo": "De los gurpos de trabajadores mencionados anteriormente \u00bfConsidera que su <b>papel o influencia,<\/b> es <b>positivo o negativo<\/b>?",
+        "opciones": {
+            "74": "<b>Sindicatos<\/b>",
+            "75": "La <b>Asociaciones profesionales<\/b> o similares",
+            "76": "Cuadros intermedios o <b>directivos intermedios.<\/b>",
+            "77": "<b>Tecnicos especialistas<\/b> (en inform\u00e1tica, instrumental especializado, etc.)",
+            "78": "Grupos de una determinada <b>disciplina o especialidad cient\u00edfica<\/b>",
+            "79": "Grupos de <b>personal administrativo<\/b> o de servicios",
+            "80": "Grupos de una determinada <b>ideolog\u00eda, tenedencia pol\u00edtica o religi\u00f3n<\/b>"
+        },
+        "encabezado2": {
+            "label": "",
+            "uno": {
+                "1": "No tienen ninguna influencia en la instituci\u00f3n"
+            },
+            "dos": {
+                "7": "Condicionan totalmente a la instituci\u00f3n"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 81,
+        "n_pag": 23,
+        "tipo": "matrix2",
+        "titulo": "Algunos organismos y colectivos pueden ser <b>aliados importantes<\/b> de {{ getInstitutionName() }}, en el sentido de defender los intereses de la isntituci\u00f3n y ayudar a cumplir sus objetivos. En su opini\u00f3n, \u00bfQu\u00e9 niveles de apoyo presta cada uno de ellos a \u00e9sta instituci\u00f3n?",
+        "opciones": {
+            "81": "La Administraci\u00f3n <b>General del Estado<\/b>",
+            "82": "La Administraci\u00f3n <b>Auton\u00f3mica<\/b>",
+            "83": "La Administraci\u00f3n <b>Local<\/b>",
+            "84": "El <b>sector empresarial<\/b>",
+            "85": "Los <b>pol\u00edticos<\/b> en general",
+            "86": "La <b>ciudadan\u00eda<\/b>",
+            "87": "Las <b>asociaciones profesionales<\/b>, colegios profesionales o similares",
+            "88": "Los sindicatos<\/b>"
+        },
+        "encabezado2": {
+            "label": "",
+            "uno": {
+                "1": "Presta muy poco apoyo"
+            },
+            "dos": {
+                "7": "Presta mucho apoyo"
+            },
+            "tres": ""
+        }
+    },
+    {
+        "id": 89,
+        "n_pag": 24,
+        "tipo": "matrix1",
+        "titulo": "A cont\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Mar\u00eda<\/b> y <b>Pedro<\/b> trabajan en {{ getInstitutionName() }} desde hace a\u00f1os.",
+        "lista": {
+            "Mar\u00eda": "Los criterios para ser contratado o aprobar un concurso o posici\u00f3n <b>son oscuros o ambiguos<\/b>",
+            "Pedro": "Los criterios para ser contratado o aprobar un concurso o posici\u00f3n <b>son claros<\/b>"
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "89": "Totalmente con Mar\u00eda - Totalmente con Pedro "
+        }
+    },
+    {
+        "id": 90,
+        "n_pag": 25,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Mar\u00eda<\/b> y <b>Pedro<\/b> trabajan en ' . $institucion = getInstitutionName() . ' desde hace a\u00f1os",
+        "lista": {
+            "Mar\u00eda": "Considero que mis m\u00e9ritos <b>SI<\/b> han sido valorados de manera imparcial en mi promoci\u00f3n profesional",
+            "Pedro": "Considero que mis m\u00e9ritos <b>NO<\/b> han sido valorados de manera imparcial en mi promoci\u00f3n profesional"
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "90": "Totalmente con Mar\u00eda - Totalmente con Pedro "
+        }
+    },
+    {
+        "id": 91,
+        "n_pag": 26,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Ana<\/b> y <b>Margarita<\/b> trabajan en ' . $institucion = getInstitutionName() . ' desde hace a\u00f1os.",
+        "lista": {
+            "Ana": "Las <b>mujeres tienen dificultades<\/b> para progresar en esta instituci\u00f3n; son a menuda discriminadas en beneficio de los hombres",
+            "Margarita": "Las <b>mujeres son tratadas igual<\/b> que los hombres- En esta instituci\u00f3n la promoci\u00f3n depende de sus m\u00e9ritos"
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "91": "Totalmente con Ana - Totalmente con Margarita"
+        }
+    },
+    {
+        "id": 92,
+        "n_pag": 27,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Francisco<\/b> y <b>Carmen<\/b> trabajan en  desde hace a\u00f1os.",
+        "lista": {
+            "Francisco": "La gran mayor\u00eda de los\/as trabajadores\/as dedican su tiempo a los <b>objetivos de la instituci\u00f3n<\/b> al margen de sus intereses personales",
+            "Carmen": "La gran mayor\u00eda de los\/as trabajadores\/as dedican su tiempo a sus <b>intereses personales,<\/b> al margen de lo que pueda interesar a la instituci\u00f3n"
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "92": "Totalmente con Francisco - Totalmente con Carmen"
+        }
+    },
+    {
+        "id": 93,
+        "n_pag": 28,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Margarita<\/b> y <b>Jos\u00e9<\/b> trabajan en ' . $institucion = getInstitutionName() . ' desde hace a\u00f1os.",
+        "lista": {
+            "Margarita": "En esta instituci\u00f3n lo m\u00e1s importante es mejorar los <b>resultados que produce de cara al exterior<\/b>",
+            "Jos\u00e9": "En esta instituci\u00f3n son m\u00e1s importantes los <b>problemas internos<\/b>"
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "93": "Totalmente con Margarita - Totalmente con Jos\u00e9"
+        }
+    },
+    {
+        "id": 94,
+        "n_pag": 29,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Antonio<\/b> y <b>Mar\u00eda<\/b> trabajan en ' . $institucion = getInstitutionName() . ' desde hace a\u00f1os.'",
+        "lista": {
+            "Antonio": "<b>Antonio<\/b> dice: Esta instituci\u00f3n tiene una forma de muy concreta de hacer las cosas. Es poco probable que las rutinas cambien.",
+            "Mar\u00eda": "<b>Mar\u00eda<\/b> dice: Esta instituci\u00f3n incorpora <b>nuevas maneras<\/b> de hacer las cosas e intenta mejorar siempre que se puede."
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "93": "Totalmente con Antonio - Totalmente con Mar\u00eda"
+        }
+    },
+    {
+        "id": 95,
+        "n_pag": 30,
+        "tipo": "matrix1",
+        "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
+        "texto1": "<b>Antonio<\/b> y <b>Mar\u00eda<\/b> trabajan en <?php $institucion ?>   desde hace a\u00f1os.",
+        "lista": {
+            "Antonio": "<b>Antonio<\/b> dice: \"Esta instituci\u00f3n en general <b>recibe apoyos influyentes<\/b> que le ayudan a cumplir sus objetivos.\"",
+            "Mar\u00eda": "<b>Mar\u00eda<\/b> dice: \"Esta instituci\u00f3n en general est\u00e1 <b>hu\u00e9rfana de apoyos influyentes<\/b> y depende de lo que nosotros podamos conseguir.\""
+        },
+        "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
+        "opciones": {
+            "93": "Totalmente con Antonio - Totalmente con Mar\u00eda"
+        }
+    },
+    {
+        "id": 96,
+        "n_pag": 31,
+        "tipo": "numberInput",
+        "titulo": "\u00bfEn qu\u00e9 a\u00f1o aproximadamente comenz\u00f3 a trabajar en {{ getInstitutionName() }?",
+        "opciones": {
+            "1": "Indicar a\u00f1o:",
+            "88": "No me acuerdo",
+            "99": "No deseo contestar"
+        },
+        "valores": {
+            "min": 1950,
+            "max": "<?php echo date('Y'); ?>",
+            "placeholder": "AAAA"
+        }
+    },
+    {
+        "id": 97,
+        "n_pag": 32,
+        "tipo": "numberInput",
+        "titulo": "\u00bfEn qu\u00e9 a\u00f1o aproximadamente comenz\u00f3 a trabajar en instituciones universitarias o relacionadas con la investigaci\u00f3n?",
+        "opciones": {
+            "1": "Indicar a\u00f1o:",
+            "88": "No me acuerdo",
+            "99": "No deseo contestar"
+        },
+        "valores": {
+            "min": 1950,
+            "max": "<?php echo date('Y'); ?>",
+            "placeholder": "AAAA"
+        }
+    },
+    {
+        "id": 98,
+        "n_pag": 33,
+        "tipo": "matrixPersonalizada",
+        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a {{ session('study.nombreInstitucion') }}:",
+        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigaci\u00f3n o visitas)",
+        "opciones": {
+            "98": "Una universidad o centro de investigaci\u00f3n en otro pa\u00eds",
+            "99": "Una empresa o entidad privada en otro pa\u00eds",
+            "100": "Un organismo internacional o una administraci\u00f3n en otro pa\u00eds",
+            "101": "Una universidad p\u00fablica",
+            "102": "Una universidad privada",
+            "103": "Un centro de investigaci\u00f3n p\u00fablico",
+            "104": "Otra instituci\u00f3n de la administraci\u00f3n (estatal, auton\u00f3mica o local)",
+            "105": "Una instituci\u00f3n privada sin \u00e1nimo de lucro"
+        },
+        "subOpciones": {
+            "1": "S\u00ed, he trabajado.",
+            "2": "He realizado estancias de investigacion o estudios.",
+            "3": "No he trabajado, ni realizado estancias."
+        }
+    },
+    {
+        "id": 106,
+        "n_pag": 34,
+        "tipo": "matrixPersonalizada",
+        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a {{ session('study.nombreInstitucion') }}:",
+        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigaci\u00f3n o visitas)",
+        "opciones": {
+            "106": "Una universidad o centro de investigaci\u00f3n en otro pa\u00eds",
+            "107": "Una empresa o entidad privada en otro pa\u00eds",
+            "108": "Un organismo internacional o una administraci\u00f3n en otro pa\u00eds",
+            "109": "Una universidad p\u00fablica",
+            "110": "Una universidad privada",
+            "111": "Un centro de investigaci\u00f3n p\u00fablico",
+            "112": "Otra instituci\u00f3n de la administraci\u00f3n (estatal, auton\u00f3mica o local)",
+            "113": "Una instituci\u00f3n privada sin \u00e1nimo de lucro"
+        },
+        "subOpciones": {
+            "1": "S\u00ed, he trabajado.",
+            "2": "He realizado estancias de investigacion o estudios.",
+            "3": "No he trabajado, ni realizado estancias."
+        }
+    },
+    {
+        "id": 114,
+        "n_pag": 35,
+        "tipo": "radio",
+        "titulo": "Sexo",
+        "opciones": {
+            "1": "Hombre",
+            "2": "Mujer",
+            "3": "Sin especificar"
+        }
+    },
+    {
+        "id": 115,
+        "n_pag": 36,
+        "tipo": "radio",
+        "titulo": "\u00bfCu\u00e1l es la <b>titulaci\u00f3n m\u00e1s alta<\/b> que ha finalizado?",
+        "opciones": {
+            "1": "Doctorado",
+            "2": "Licenciatura, m\u00e1ster o grado",
+            "3": "Diplomatura o similar",
+            "4": "Estudios secundarios (FP o Bachillerato)",
+            "5": "Estudios primarios"
+        }
+    },
+    {
+        "id": 116,
+        "n_pag": 37,
+        "tipo": "formSelect",
+        "titulo": "Por favor, indique la universidad en la que obtuvo el t\u00edtulo de dotorado:",
+        "opciones": {
+            "1": {
+                "label": "Una universidad de otro pa\u00eds"
+            },
+            "2": {
+                "label": "Una universidad espa\u00f1ola:",
+                "subLabel": {
+                    "21": "Universidad Espa\u00f1ola 1",
+                    "22": "Universidad Espa\u00f1ola 2",
+                    "23": "Universidad Espa\u00f1ola 3",
+                    "24": "Universidad Espa\u00f1ola 4",
+                    "25": "Universidad Espa\u00f1ola 5",
+                    "26": "Universidad Espa\u00f1ola 6",
+                    "27": "Universidad Espa\u00f1ola 7",
+                    "28": "Universidad Espa\u00f1ola 8",
+                    "29": "Universidad Espa\u00f1ola 9",
+                    "221": "Otra universidad"
+                }
+            }
+        }
+    },
+    {
+        "id": 117,
+        "n_pag": 38,
+        "tipo": "radio",
+        "titulo": "Ya hemos acabado, \u00bfDesea que le enviemos los resultados del estudio?",
+        "opciones": {
+            "1": "S\u00ed",
+            "2": "No"
+        }
+    },
+    {
+        "id": 118,
+        "n_pag": 38,
+        "tipo": "radio",
+        "final": "Recuerde que su correo electr\u00f3nico se utilizar\u00e1 solo para este prop\u00f3sito y sus datos se mantendr\u00e1n en la m\u00e1s estricta confidencialidad",
+        "titulo": "Nos gustaria seguir contando con Ud. en futuros estudios relacionados con la Calidad Institucional del Sistema de Universidades y de I+D. <b>\u00bfdesea recibir otro mensaje para participar en una segunda oleada de la encuesta?<\/b>",
+        "opciones": {
+            "1": "S\u00ed",
+            "2": "No"
+        }
+    }
+
+]

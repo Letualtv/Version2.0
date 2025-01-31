@@ -1,0 +1,27 @@
+// Css del footer
+.navbar,
+.footer {
+    background-color: lighten($colorGris, 20%) !important;
+}
+// Primer apartado del footer
+.foot {
+    /* Tus estilos personalizados */
+    background-color: lighten($colorGris, 10%) !important;
+}
+
+.progress {
+    width: 20rem;
+    height: 2rem;
+    background-color: lighten($colorGris, 10%);
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+// Barra de progreso
+.progress-bar {
+    color: white;
+    background-color: lighten($colorRojo, 10%);
+
+    transition: width 2s ease-in;
+}

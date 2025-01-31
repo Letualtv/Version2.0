@@ -1,0 +1,34 @@
+encuesta/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── config/
+│   └── db.php
+├── includes/
+│   ├── navbar.php
+│   ├── footer.php
+│   ├── navigation.php
+│   └── xxxPregunta.php
+├── public/
+│   ├── index.php
+│   ├── submit.php
+│   ├── .htaccess
+│   └── img/
+├── routes/
+│   └── routes.php
+├── controller/
+│   └── PreguntasController.php
+└── views/
+    ├── landing/
+    │   ├── page1.php
+    │   ├── page2.php
+    │   ├── page3.php
+    │   ├── page4.php
+    │   ├── page5.php
+    │   ├── page6.php
+    │   └── page7.php
+    ├── survey/
+    │   └── question.php
+    └── auth/
+        └── login.php

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Balthazar&display=swap");
+
+/* ESTILOS GENERALES */
+
+body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: normal;
+}
+/* Botones */
+.btn-primary {
+  background-color: #af071f; /* Tu color */
+  border-color: #af071f; /* Color del borde */
+}
+
+.btn-primary:hover {
+  background-color: #9e0624; /* Hacerlo un poco más oscuro en hover */
+  border-color: #9e0624;
+}
+
+.btn-primary:focus {
+  background-color: #9e0624 !important;
+  border-color: #9e0624 !important;
+  outline: none;
+}
+
+.btn-primary:active {
+  background-color: #af071f !important;
+  border-color: #af071f !important;
+  outline: none;
+}
+/* Links generales */
+a {
+    color: #af071f !important;
+}
+
+a:hover {
+    color: #d3122a !important; /* lighten(#af071f, 10%) */
+}
