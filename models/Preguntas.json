@@ -3,31 +3,30 @@
         "id": "1",
         "n_pag": 1,
         "tipo": "radio",
-        "titulo": "Pregunta de prueba",
-        "subTitulo": "Subtitulo predefinido",
+        "titulo": "Pregunta de tipo radio",
+        "subTitulo": "",
         "opciones": {
-            "1": "S\u00ed, trabajo actualmente en esta instituci\u00f3n",
+            "1": "No, trabajo actualmente en esta instituci\u00f3n",
             "2": "He trabajado, pero estoy jubilado o no activo",
             "3": "He trabajado, pero ahora trabajo en otro lugar",
-            "4": "Soy o he sido alumno\/a, pero no trabajador\/a",
-            "5": "No he trabajado ni he sido alumno\/a de esta instituci\u00f3n"
+            "4": "S\u00ed trabajo aqu\u00ed"
         }
     },
     {
-        "id": 2,
+        "id": "2",
         "n_pag": 2,
         "tipo": "numberInput",
         "titulo": "Pregunta 2: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
         "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
             "1": "Indicar a\u00f1o:",
-            "88": "No me acuerdo",
-            "99": "No deseo contestar"
+            "2": "No me acuerdo",
+            "3": "No deseo contestar"
         },
         "valores": {
-            "min": 1950,
-            "max": "<?php echo date('Y'); ?>",
-            "placeholder": "AAAA"
+            "min": 2010,
+            "max": 2020,
+            "placeholder": "A\u00f1o"
         }
     },
     {
@@ -700,7 +699,7 @@
         "id": 98,
         "n_pag": 33,
         "tipo": "matrixPersonalizada",
-        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a {{ session('study.nombreInstitucion') }}:",
+        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a <?php $institucion ?>:",
         "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigaci\u00f3n o visitas)",
         "opciones": {
             "98": "Una universidad o centro de investigaci\u00f3n en otro pa\u00eds",
@@ -744,7 +743,7 @@
         "id": 114,
         "n_pag": 35,
         "tipo": "radio",
-        "titulo": "Sexo",
+        "titulo": "Sexo <?php echo $institucion ?>",
         "opciones": {
             "1": "Hombre",
             "2": "Mujer",
@@ -801,15 +800,20 @@
         }
     },
     {
-        "id": 118,
+        "id": "220",
         "n_pag": 38,
-        "tipo": "radio",
-        "final": "Recuerde que su correo electr\u00f3nico se utilizar\u00e1 solo para este prop\u00f3sito y sus datos se mantendr\u00e1n en la m\u00e1s estricta confidencialidad",
-        "titulo": "Nos gustaria seguir contando con Ud. en futuros estudios relacionados con la Calidad Institucional del Sistema de Universidades y de I+D. <b>\u00bfdesea recibir otro mensaje para participar en una segunda oleada de la encuesta?<\/b>",
+        "tipo": "numberInput",
+        "titulo": "Pregunta 2: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
+        "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
-            "1": "S\u00ed",
-            "2": "No"
+            "1": "Indicar a\u00f1o:",
+            "2": "S\u00ed, trabajo actualmente en esta instituci\u00f3n",
+            "3": "S\u00ed, trabajo actualmente en esta instituci\u00f3n"
+        },
+        "valores": {
+            "min": 1985,
+            "max": 2005,
+            "placeholder": "a\u00f1o"
         }
     }
-
 ]

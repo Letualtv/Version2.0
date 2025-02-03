@@ -2,6 +2,11 @@
 // Obtener la URL actual
 $currentUrl = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
+include_once __DIR__ . '/../controller/GeneralController.php';
+
+// Llamar a la función para obtener los datos del JSON y reemplazar variables
+$variables = GeneralController();
+
 ?>
 
 <!DOCTYPE html>

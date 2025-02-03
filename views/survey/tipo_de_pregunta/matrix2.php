@@ -39,11 +39,11 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
             }
 
             echo "
-            <input type='radio' class='btn-check' required
+            <input type='radio' class='btn-check ' required
                    name='{$clave}' 
                    id='q{$clave}_{$i}' 
                    value='{$i}' $checked>
-            <label class='btn btn-outline-primary px-3' for='q{$clave}_{$i}'>{$i}</label>";
+            <label class='btn btn-outline-primary px-3 is-invalid' for='q{$clave}_{$i}'>{$i}</label>";
         }
 
         echo "

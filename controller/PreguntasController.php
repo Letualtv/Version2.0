@@ -7,7 +7,6 @@ class PreguntasController
     {
         $claveId = $_SESSION['clave_id'];
 
-        // Verificar si la encuesta ya está finalizada
         if ($this->verificarEncuestaFinalizada($claveId)) {
             header('Location: encuestafinalizada');
             exit;
@@ -25,11 +24,8 @@ class PreguntasController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->guardarRespuestas($_POST);
-
-            // Guardar estado de la sesión
             $this->guardarEstadoSesion($claveId);
 
-            // Si no hay una siguiente página, marcar la encuesta como finalizada y redirigir a gracias.php
             $paginacion = $this->calcularPaginacion($preguntas, $n_pag);
             if (is_null($paginacion['nextPag'])) {
                 $this->marcarEncuestaComoFinalizada($claveId);
@@ -38,7 +34,11 @@ class PreguntasController
             }
         }
 
-        // Guarda la página actual en la sesión
+        // Calcular el progreso
+        $totalPaginas = max(array_column($preguntas, 'n_pag'));
+        $progreso = ($n_pag / $totalPaginas) * 100;
+        $progreso = round($progreso, 2);
+
         $_SESSION['current_page'] = $n_pag;
 
         $paginacion = $this->calcularPaginacion($preguntas, $n_pag);
@@ -48,6 +48,7 @@ class PreguntasController
                 'preguntasEnPagina' => $preguntasEnPagina,
                 'prevPag' => $paginacion['prevPag'],
                 'nextPag' => $paginacion['nextPag'],
+                'progreso' => $progreso,
             ],
             'view' => $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/cuestionario.php',
         ];
@@ -74,7 +75,7 @@ class PreguntasController
         $stmt->execute();
     }
 
-    private function obtenerPreguntas(): array
+    public function obtenerPreguntas(): array
     {
         $archivo = $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/preguntas.json';
 
@@ -82,28 +83,20 @@ class PreguntasController
             return [];
         }
 
-        // Leer el archivo JSON
         $json = file_get_contents($archivo);
-
-        // Incluir el archivo que define las variables
         require_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/general.php';
 
-        // Verificar que $variables esté definido correctamente
         if (!isset($variables) || !is_array($variables)) {
             throw new Exception("Las variables no están definidas correctamente.");
         }
 
-        // Reemplazar las variables en el JSON
         $json = strtr($json, $variables);
-
-        // Decodificar el JSON
-        return json_decode($json, true); // true para convertirlo en un array asociativo
+        return json_decode($json, true);
     }
 
     private function guardarRespuestas(array $respuestas): void
     {
         foreach ($respuestas as $key => $respuesta) {
-            // Suponiendo que $key es el ID de la pregunta
             $_SESSION['respuestas'][$key] = is_array($respuesta) ? implode(', ', $respuesta) : $respuesta;
         }
     }
@@ -123,14 +116,12 @@ class PreguntasController
     {
         global $pdo;
 
-        // Convertir la sesión en un formato serializado para guardarla en la base de datos
         $estadoSesion = serialize($_SESSION);
-
-        // Guardar el estado de la sesión en la base de datos
         $stmt = $pdo->prepare("UPDATE claves SET estado_sesion = :estado_sesion WHERE id = :clave_id");
         $stmt->bindParam(':estado_sesion', $estadoSesion, PDO::PARAM_STR);
         $stmt->bindParam(':clave_id', $claveId, PDO::PARAM_INT);
         $stmt->execute();
     }
 }
+
 ?>

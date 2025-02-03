@@ -1,13 +1,17 @@
-<nav class="navbar sticky-top navbar-light bg-light justify-content-center justify-content-md-around">
-    <h5 class="navbar-text  align-middle">
-    </h5>
-    <div class="  ">
-        <div class="progress">
-            <div class="progress-bar " role="progressbar" 
-               aria-valuemin="0" aria-valuemax="100"><span class="mx-2">
-                 Completado</span>
+<!-- En tu archivo de vista (cuestionario.php) -->
+<nav class="navbar sticky-top navbar-light bg-light ">
+    <div class="d-flex row"></div>
+        <div class="col-12 col-md-6  text-center">
+        <h6 class="navbar-text px-2 px-md-0 align-middle">
+            <?php echo $variables['{$estudio}']; ?>
+        </h6>
+        </div>
+        <div class="col-12 col-md-6 text-center ">
+        <div class="badge text-bg-secondary align-middle px-3 py-2 d-none d-md-inline"><?php echo $progreso . '%'; ?> Completado</div>
+
+            <div class="text-bg-secondary d-flex d-md-none p-2 mx-auto">
+            <div class="badge text-bg-secondary align-middle fs-6 "><?php echo $progreso . '%'; ?> Completado</div>
             </div>
         </div>
     </div>
 </nav>
-

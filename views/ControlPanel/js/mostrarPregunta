@@ -1,0 +1,65 @@
+function mostrarFormularioNuevaPregunta() {
+  document.getElementById("preguntaForm").scrollIntoView({ behavior: 'smooth' });
+  document.getElementById("preguntaForm").reset();
+  document.getElementById("preguntaId").value = "";
+  document.getElementById("opciones").innerHTML = "";
+
+
+  // Añadir el botón "Agregar Opción"
+  const opcionesDiv = document.getElementById("opciones");
+  const addButtonContainer = document.createElement("div");
+  addButtonContainer.classList.add("add-option-container", "my-2");
+  addButtonContainer.innerHTML = `
+    <a type="button" onclick="agregarOpcion()">
+      <i class="fa-xl fa-solid fa-circle-plus"></i>
+    </a>
+  `;
+  opcionesDiv.parentElement.appendChild(addButtonContainer);
+
+  ajustarParametros();
+}
+
+
+function editarPregunta(id) {
+  fetch(`obtenerPregunta.php?id=${id}`)
+    .then((response) => response.json())
+    .then((pregunta) => {
+      document.getElementById("preguntaId").value = pregunta.id;
+      document.getElementById("titulo").value = pregunta.titulo;
+      document.getElementById("n_pag").value = pregunta.n_pag;
+      document.getElementById("tipo").value = pregunta.tipo;
+      document.getElementById("subTitulo").value = pregunta.subTitulo;
+      const opcionesDiv = document.getElementById("opciones");
+      opcionesDiv.innerHTML = "";
+
+      // Eliminar el botón "Agregar Opción" si ya existe
+      const existingAddButton = document.querySelector(".add-option-container");
+      if (existingAddButton) {
+        existingAddButton.remove();
+      }
+
+      // Añadir opciones existentes
+      if (pregunta.opciones && Object.keys(pregunta.opciones).length > 0) {
+        Object.keys(pregunta.opciones).forEach((key) => {
+          agregarOpcion(key, pregunta.opciones[key]);
+        });
+      }
+
+      // Añadir el botón "Agregar Opción"
+      const addButtonContainer = document.createElement("div");
+      addButtonContainer.classList.add("add-option-container", "my-2");
+      addButtonContainer.innerHTML = `
+        <a type="button" class="hover-zoom" onclick="agregarOpcion()">
+          <i class="fa-xl fa-solid fa-circle-plus"></i>
+        </a>
+      `;
+      opcionesDiv.parentElement.appendChild(addButtonContainer);
+
+      if (pregunta.tipo === "numberInput") {
+        document.getElementById("min").value = pregunta.valores.min;
+        document.getElementById("max").value = pregunta.valores.max;
+        document.getElementById("placeholder").value = pregunta.valores.placeholder;
+      }
+      ajustarParametros();
+    });
+}

@@ -31,7 +31,7 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
             <label class='form-check-label' for='radio-{$pregunta['id']}-{$clave}'>$opcion</label>";
 
         // Mostrar el input number para la opción del 1 al 5
-        if (in_array($clave, [1, 2, 3, 4, 5]) && isset($pregunta['valores'])) {
+        if (in_array($clave, [1]) && isset($pregunta['valores'])) {
             $min = $pregunta['valores']['min'];
             $max = date("Y"); // Evaluar la fecha en el JSON
             $placeholder = $pregunta['valores']['placeholder'];

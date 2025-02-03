@@ -1,13 +1,52 @@
 function agregarOpcion(clave = "", opcion = "") {
   const opcionesDiv = document.getElementById("opciones");
+
+  // Crear la nueva opción
   const nuevaOpcion = document.createElement("div");
-  nuevaOpcion.classList.add("input-group", "mb-2" );
+  nuevaOpcion.classList.add("input-group", "mb-2");
   nuevaOpcion.innerHTML = `
-        <input type="text" class="form-control " name="claves[]" placeholder="Clave" value="${clave}" required>
-        <input type="text" class="form-control w-75" name="opciones[]" placeholder="Opción" value="${opcion}" required>
-    `;
+    <button type="button" class="btn btn-outline-danger btn-sm icon-change" onclick="eliminarOpcion(this)"><i class="fa-solid fa-trash"></i><i class="fa-solid fa-trash-arrow-up"></i></button>
+    <input type="text" class="form-control shadow-sm" name="claves[]" placeholder="Clave" value="${clave}" required>
+    <input type="text" class="form-control w-75 shadow-sm" name="opciones[]" placeholder="Opción" value="${opcion}" required>
+  `;
   opcionesDiv.appendChild(nuevaOpcion);
+
+  // Añadir el botón "Agregar Opción" si no existe
+  let addButtonContainer = document.querySelector(".add-option-container");
+  if (!addButtonContainer) {
+    addButtonContainer = document.createElement("div");
+    addButtonContainer.classList.add("add-option-container", "my-2");
+    addButtonContainer.innerHTML = `
+      <a type="button" class="hover-zoom" onclick="agregarOpcion()"><i class="fa-xl fa-solid fa-circle-plus"></i></a>
+    `;
+    opcionesDiv.parentElement.appendChild(addButtonContainer);
+  }
 }
+
+function mostrarFormularioNuevaPregunta() {
+  document.getElementById("preguntaForm").scrollIntoView({ behavior: 'smooth' });
+  document.getElementById("preguntaForm").reset();
+  document.getElementById("preguntaId").value = "";
+  document.getElementById("opciones").innerHTML = "";
+
+  // Eliminar el botón "Agregar Opción" si ya existe
+  const existingAddButton = document.querySelector(".add-option-container");
+  if (existingAddButton) {
+    existingAddButton.remove();
+  }
+
+  // Añadir el botón "Agregar Opción"
+  const opcionesDiv = document.getElementById("opciones");
+  const addButtonContainer = document.createElement("div");
+  addButtonContainer.classList.add("add-option-container", "my-2");
+  addButtonContainer.innerHTML = `
+    <a type="button" class="hover-zoom" onclick="agregarOpcion()"><i class="fa-xl fa-solid fa-circle-plus"></i></a>
+  `;
+  opcionesDiv.parentElement.appendChild(addButtonContainer);
+  
+  ajustarParametros();
+}
+
 
 document
   .getElementById("preguntaForm")
@@ -73,38 +112,68 @@ function cargarPreguntas() {
       preguntasTable.innerHTML = "";
 
       const table = document.createElement("table");
-      table.classList.add("table", "table-bordered", "table-striped");
+      table.classList.add("table", "table-bordered", "table-hover", "table-sm");
 
       const thead = document.createElement("thead");
       thead.innerHTML = `
-            <tr>
-                <th class="col">ID</th>
-                <th class="col col-md-8">Título</th>
-                <th class="col">Nº página</th>
-                <th class="col">Tipo</th>
-                <th class="col ">Acciones</th>
-            </tr>
-        `;
+        <tr class="table-primary text-center align-middle">
+            <th class="col">ID</th>
+            <th class="col col-md-8">Título</th>
+            <th class="col">Nº página</th>
+            <th class="col">Tipo</th>
+            <th class="col">Acciones</th>
+        </tr>
+      `;
       table.appendChild(thead);
 
       const tbody = document.createElement("tbody");
+      const tipoMap = {
+        radio: "Radio",
+        numberInput: "Entrada numérica",
+        checkbox: "Checkbox",
+        formSelect: "Radio desplegable",
+      };
       data.forEach((pregunta) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-                <td class="align-middle">${pregunta.id}</td>
-                <td class="align-middle">${pregunta.titulo}</td>
-                <td class="align-middle">${pregunta.n_pag}</td>
-                <td class="align-middle">${pregunta.tipo}</td>
-                <td class="mx-auto align-middle" >
-                    <button class="btn btn-sm btn-warning" onclick="editarPregunta(${pregunta.id})">Editar</button>
-                    <button class="btn btn-sm btn-danger" onclick="borrarPregunta(${pregunta.id})">Borrar</button>
-                </td>
-            `;
+          <td class="align-middle text-center fw-bold">${pregunta.id}</td>
+          <td class="align-middle">${pregunta.titulo}</td>
+          <td class="align-middle text-center">${pregunta.n_pag}</td>
+          <td class="align-middle text-center">${tipoMap[pregunta.tipo]}</td>
+          <td class="align-middle d-flex justify-content-center align-items-center w-100">
+            <div class="d-flex w-100 ">
+                <button class="btn btn-sm btn-warning me-2 flex-fill d-flex justify-content-center align-items-center" onclick="editarPregunta(${pregunta.id})">
+                    <i class="fas fa-edit"></i> <span class="ms-2">Editar</span>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm  icon-change" onclick="borrarPregunta(${pregunta.id})"><i class="fa-solid fa-trash"></i><i class="fa-solid fa-trash-arrow-up"></i></button>
+            </div>
+          </td>
+        `;
         tbody.appendChild(row);
       });
+
+      // Crear la fila para el botón "Agregar nueva pregunta"
+      const addQuestionRow = document.createElement("tr");
+      addQuestionRow.innerHTML = `
+        <td colspan="5" class="text-center">
+          <button type="button" class="btn btn-outline-success btn-sm btn-animado" onclick="mostrarFormularioNuevaPregunta()">
+            <i class="fa-regular fa-circle-plus"></i> Nueva pregunta
+          </button>
+        </td>
+      `;
+      tbody.appendChild(addQuestionRow);
+
       table.appendChild(tbody);
       preguntasTable.appendChild(table);
     });
+}
+
+function mostrarFormularioNuevaPregunta() {
+  document.getElementById("preguntaForm").scrollIntoView({ behavior: 'smooth' });
+  document.getElementById("preguntaForm").reset();
+  document.getElementById("preguntaId").value = "";
+  document.getElementById("opciones").innerHTML = "";
+  ajustarParametros();
 }
 
 function editarPregunta(id) {
