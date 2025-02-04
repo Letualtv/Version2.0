@@ -10,7 +10,7 @@ session_start();
 
 
 
-include __DIR__ . '/../views/auth/guardarRespuesta.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/controller/PreguntasController.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
 
 if (!isset($_SESSION['respuestas'])) {
@@ -39,7 +39,7 @@ if ($resultado['error']) {
 <body class="d-flex flex-column min-vh-100">
     <?php include './../includes/navigationPregunta.php'; ?>
     <div class="container my-4 col-12 col-lg-10">
-        <form class="card" action="/Version2.0/views/auth/guardarRespuesta.php" method="POST" style="min-height: 75vh;">
+        <form class="card" action="?n_pag=<?= htmlspecialchars($_GET['n_pag'] ?? 1) ?>" method="POST" style="min-height: 75vh;">
             <?php include 'vistaCuestionario.php'; ?>
         </form>
     </div>

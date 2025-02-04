@@ -8,7 +8,7 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
         // Verifica si hay una respuesta guardada en la sesión para esta pregunta
         if (isset($_SESSION['respuestas'][$pregunta['id']])) {
             // Verifica si la respuesta es un valor numérico
-            if (is_numeric($_SESSION['respuestas'][$pregunta['id']]) && in_array($clave, [1, 2, 3, 4, 5])) {
+            if (is_numeric($_SESSION['respuestas'][$pregunta['id']]) && in_array($clave, [1])) {
                 $numberValue = $_SESSION['respuestas'][$pregunta['id']];
                 $checked = 'checked';  // Marca la opción si hay un valor de número guardado
                 $inputDisabled = ''; // Habilita el input number si hay un valor guardado

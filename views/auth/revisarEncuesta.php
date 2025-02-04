@@ -1,5 +1,5 @@
 <?php
-session_start();
+/* session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
 
 if (!isset($_SESSION['clave_id'])) {
@@ -43,5 +43,5 @@ try {
 } catch (PDOException $e) {
     // Maneja el error de conexión con la base de datos
     echo "Error de conexión con la base de datos: " . $e->getMessage();
-}
+} */
 ?>

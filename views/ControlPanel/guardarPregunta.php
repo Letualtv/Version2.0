@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($tipo === 'numberInput') {
         $nuevaPregunta['valores'] = [
             'min' => isset($valores['min']) ? (int)$valores['min'] : 1950,
-            'max' => isset($valores['max']) ? (int)$valores['max'] : date('Y'),
+            'max' => isset($valores['max']) ? (int)$valores['max'] : 2025,
             'placeholder' => isset($valores['placeholder']) ? $valores['placeholder'] : 'AAAA'
         ];
     }

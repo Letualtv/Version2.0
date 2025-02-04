@@ -1,5 +1,5 @@
 <?php 
-session_start();
+/* session_start();
 
 // Incluir configuración de la base de datos
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
@@ -69,4 +69,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (Exception $e) {
         echo "Error al guardar las respuestas: " . $e->getMessage();
     }
-}
+} */ ?>

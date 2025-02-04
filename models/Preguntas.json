@@ -24,8 +24,8 @@
             "3": "No deseo contestar"
         },
         "valores": {
-            "min": 2010,
-            "max": 2020,
+            "min": 1985,
+            "max": 2024,
             "placeholder": "A\u00f1o"
         }
     },
@@ -797,23 +797,6 @@
         "opciones": {
             "1": "S\u00ed",
             "2": "No"
-        }
-    },
-    {
-        "id": "220",
-        "n_pag": 38,
-        "tipo": "numberInput",
-        "titulo": "Pregunta 2: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
-        "subTitulo": "Marca todos los lenguajes que dominas.",
-        "opciones": {
-            "1": "Indicar a\u00f1o:",
-            "2": "S\u00ed, trabajo actualmente en esta instituci\u00f3n",
-            "3": "S\u00ed, trabajo actualmente en esta instituci\u00f3n"
-        },
-        "valores": {
-            "min": 1985,
-            "max": 2005,
-            "placeholder": "a\u00f1o"
         }
     }
 ]

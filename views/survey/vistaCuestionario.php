@@ -2,35 +2,31 @@
     <?php if (isset($pregunta['titulo']) || isset($pregunta['subtitulo'])): ?>
         <div class="card-header">
             <div class="pt-1 pt-md-3 ps-1 ps-md-3">
-                <h6><?= $pregunta['titulo'] ?></h6>
-                <p class="text-muted"><?= $pregunta['subTitulo'] ?></p>
+                <h6><?= htmlspecialchars($pregunta['titulo']) ?></h6>
+                <p class="text-muted"><?= htmlspecialchars($pregunta['subTitulo'] ?? '') ?></p>
             </div>
         </div>
     <?php endif; ?>
-
-
 
     <div class="card-body p-4">
         <?php if (isset($pregunta['texto1']) || isset($pregunta['lista']) || isset($pregunta['texto2'])): ?>
             <div class="pb-2">
                 <?php if (isset($pregunta['texto1'])): ?>
-                    <p><?= $pregunta['texto1'] ?></p>
+                    <p><?= htmlspecialchars($pregunta['texto1']) ?></p>
                 <?php endif; ?>
                 <?php if (isset($pregunta['lista']) && is_array($pregunta['lista'])): ?>
                     <ul>
                         <?php foreach ($pregunta['lista'] as $item): ?>
-                            <li><?= $item ?></li>
+                            <li><?= htmlspecialchars($item) ?></li>
                         <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
                 <?php if (isset($pregunta['texto2'])): ?>
-                    <p><?= $pregunta['texto2'] ?></p>
+                    <p><?= htmlspecialchars($pregunta['texto2']) ?></p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-
         <?php include_once 'tipo_de_pregunta/encabezado.php'; ?>
-
         <?php
         switch ($pregunta['tipo']) {
             case 'radio':
@@ -66,41 +62,25 @@
         ?>
     </div>
 <?php endforeach; ?>
-
 <?php if (isset($pregunta['final'])): ?>
-    <p class="text-center fst-italic py-3"><?= $pregunta['final'] ?></p>
+    <p class="text-center fst-italic py-3"><?= htmlspecialchars($pregunta['final']) ?></p>
 <?php endif; ?>
 <div class="card-footer text-center">
     <div class="row p-1">
         <div class="col ">
             <?php if ($prevPag): ?>
-                <a href="?n_pag=<?= $prevPag ?>" class="btn btn-primary">Anterior</a>
+                <a href="?n_pag=<?= htmlspecialchars($prevPag) ?>" class="btn btn-primary">Anterior</a>
             <?php endif; ?>           
-
         </div>
-        <div class="col d-flex">
-        <button class="btn btn-warning" type="reset">Resetear</button>
+        <div class="col d-flex justify-content-center">
+            <button class="btn btn-warning" type="reset">Resetear</button>
         </div>
-
         <div class="col ">
-
             <?php if ($nextPag): ?>
-                <button type="button" class="btn btn-primary" onclick="guardarYAvanzar(<?= $nextPag ?>)">Siguiente</button>
+                <button type="submit" class="btn btn-primary">Guardar y avanzar</button>
             <?php else: ?>
                 <button type="submit" class="btn btn-success">Finalizar</button>
             <?php endif; ?>
         </div>
     </div>
 </div>
-
-<script>
-    function guardarYAvanzar(nextPag) {
-        var form = document.querySelector('form');
-        if (form.checkValidity()) {
-            form.action = '?n_pag=' + nextPag;
-            form.submit();
-        } else {
-            form.reportValidity();
-        }
-    }
-</script>
