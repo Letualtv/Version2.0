@@ -11,11 +11,21 @@ class PreguntasController
             header('Location: encuestafinalizada');
             exit;
         }
-
+    
+        // Recuperar respuestas de la base de datos y cargarlas en la sesión
+        $this->recuperarRespuestasDeBD($claveId);
+    
+        // Redirigir al usuario a la última página completada si no se especifica una página
+        if (!isset($_GET['n_pag'])) {
+            $currentPag = $_SESSION['current_page'] ?? 1;
+            header("Location: ?n_pag=$currentPag");
+            exit;
+        }
+    
         // Obtener las preguntas y filtrar por página actual
         $preguntas = $this->obtenerPreguntas();
         $preguntasEnPagina = array_filter($preguntas, fn($p) => $p['n_pag'] === $n_pag);
-
+    
         // Si no hay preguntas para esta página, devolver un error
         if (empty($preguntasEnPagina)) {
             return [
@@ -23,38 +33,35 @@ class PreguntasController
                 'view' => $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/errors/errorPregunta.php',
             ];
         }
-
-        // Recuperar respuestas de la base de datos y cargarlas en la sesión
-        $this->recuperarRespuestasDeBD($claveId);
-
+    
         // Procesar respuestas si se envió el formulario
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->guardarRespuestas($_POST);
             $this->guardarRespuestasEnBD($claveId);
-
+    
             // Calcular la paginación
             $paginacion = $this->calcularPaginacion($preguntas, $n_pag);
-
+    
             // Si no hay más páginas, marcar la encuesta como finalizada
             if (is_null($paginacion['nextPag'])) {
                 $this->marcarEncuestaComoFinalizada($claveId);
                 header('Location: gracias');
                 exit;
             }
-
+    
             // Redirigir al usuario a la siguiente página
             header("Location: ?n_pag={$paginacion['nextPag']}");
             exit;
         }
-
+    
         // Calcular el progreso
         $totalPaginas = max(array_column($preguntas, 'n_pag'));
         $progreso = round(($n_pag / $totalPaginas) * 100, 2);
         $_SESSION['current_page'] = $n_pag;
-
+    
         // Calcular la paginación
         $paginacion = $this->calcularPaginacion($preguntas, $n_pag);
-
+    
         return [
             'error' => false,
             'data' => [
@@ -117,25 +124,66 @@ class PreguntasController
         ];
     }
 
-    private function recuperarRespuestasDeBD($claveId): void
+    public function recuperarRespuestasDeBD($claveId): void
     {
         global $pdo;
+    
+        // Consulta para obtener las respuestas del usuario
         $stmt = $pdo->prepare("SELECT * FROM cuestionario WHERE clave = ?");
         $stmt->bindParam(1, $claveId, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
         if ($result) {
+            // Limpiar $_SESSION['respuestas'] antes de cargar nuevas respuestas
+            $_SESSION['respuestas'] = [];
+    
             foreach ($result as $columna => $valor) {
                 if (strpos($columna, 'r') === 0 && !empty($valor)) { // Solo columnas rX
                     $id = substr($columna, 1); // Eliminar el prefijo "r"
                     $_SESSION['respuestas'][$id] = $valor;
+                    error_log("Respuesta recuperada: Pregunta $id, Valor $valor");
                 }
             }
+    
+            // Registrar el progreso del usuario en la sesión
+            $_SESSION['current_page'] = $this->calcularPaginaActual($_SESSION['respuestas']);
+            error_log("Página actual calculada: " . $_SESSION['current_page']);
+        } else {
+            error_log("No se encontraron respuestas en la base de datos para la clave $claveId");
         }
     }
+    public function calcularPaginaActual(array $respuestas): int
+    {
+        $preguntas = $this->obtenerPreguntas();
+    
+        // Obtener todas las páginas disponibles
+        $paginas = array_unique(array_column($preguntas, 'n_pag'));
+        sort($paginas);
+    
+        // Iterar sobre las páginas en orden inverso para encontrar la última completada
+        for ($i = count($paginas) - 1; $i >= 0; $i--) {
+            $pagina = $paginas[$i];
+            $preguntasEnPagina = array_filter($preguntas, fn($p) => $p['n_pag'] === $pagina);
+    
+            // Verificar si todas las preguntas en esta página tienen respuestas
+            $completada = true;
+            foreach ($preguntasEnPagina as $pregunta) {
+                if (!isset($respuestas[$pregunta['id']])) {
+                    $completada = false;
+                    break;
+                }
+            }
+    
+            if ($completada) {
+                return $pagina;
+            }
+        }
+        error_log("Respuestas recuperadas de la base de datos: " . print_r($_SESSION['respuestas'], true));        // Si no hay respuestas, devolver la primera página
+        return 1;
+    }
 
-    private function guardarRespuestasEnBD($claveId): void
+    public function guardarRespuestasEnBD(): void
     {
         global $pdo;
 

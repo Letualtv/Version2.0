@@ -8,7 +8,7 @@
 <?php
 session_start();
 
-
+error_log("Respuestas en la sesión: " . print_r($_SESSION['respuestas'], true));
 
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/controller/PreguntasController.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';

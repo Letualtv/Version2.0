@@ -19,7 +19,7 @@ include __DIR__ . '/../../includes/navigation.php';
     <!-- Formulario -->
     <form method="POST" action="" class="was-validated">
         <div class="card mb-4">
-            <div class="card-header p-md-4">
+            <div class="card-header px-md-4 py-md-3">
                 <h3>Consentimiento informado</h3>
             </div>
             <div class="card-body p-md-4">
@@ -49,7 +49,7 @@ include __DIR__ . '/../../includes/navigation.php';
                     <div class="col-12 col-lg-6 mx-auto">
                     <input type="text" class="form-control" placeholder="Escriba su clave aquí" required name="clave" value="<?php echo isset($_POST['clave']) ? htmlspecialchars($_POST['clave']) : ''; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4">Abrir Encuesta</button>
+                    <button type="submit" class="btn btn-primary mt-4">Abrir encuesta</button>
                 </div>
             </div>
         </div>
