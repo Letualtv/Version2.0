@@ -3,44 +3,51 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
     foreach ($pregunta['opciones'] as $clave => $opcion) {
         $checked = '';  // Inicializa la variable para verificar si la opción debe estar marcada
         $selectVisible = 'display: none;';  // Inicializa la visibilidad del select asociado
+        $selectedValue = '';  // Inicializa la variable para verificar si el select debe tener un valor seleccionado
 
         // Verifica si hay una respuesta guardada en la sesión para esta pregunta
-        if (isset($_SESSION['respuestas'][$pregunta['id']]) && $_SESSION['respuestas'][$pregunta['id']] == $clave) {
-            $checked = 'checked';  // Marca la opción si coincide con la respuesta guardada
-            $selectVisible = 'display: block;';  // Muestra el select asociado si el radio está marcado
+        if (isset($respuestas[$pregunta['id']])) {
+            $respuesta = $respuestas[$pregunta['id']];
+            // Verifica si la respuesta es un valor numérico y no es uno de los valores esperados
+            if (!in_array($respuesta, range(1, 10)) && is_numeric($respuesta)) {
+                $selectedValue = $respuesta;
+                $selectVisible = 'display: block;';  // Muestra el select asociado si el radio está marcado
+                if ($clave == 1) {
+                    $checked = 'checked';  // Marca la opción correspondiente
+                }
+            } elseif ($respuesta == $clave) {
+                $checked = 'checked';  // Marca la opción si coincide con la respuesta guardada
+            }
         }
 
         echo "
-        <div class='form-check pb-1'>
-            <input class='form-check-input main-radio' 
-                   type='radio' required
-                   name='" . $pregunta['id'] . "'  
-                   id='radio-" . $pregunta['id'] . "-" . $clave . "' 
-                   value='" . $clave . "' 
-                   onchange='toggleSelects(this)' $checked>
-            <label class='form-check-label' for='radio-" . $pregunta['id'] . "-" . $clave . "'>" . $opcion['label'] . "</label>
-        </div>
-        ";
+        <div class='form-check '>
+            <input required
+                class='form-check-input me-2 main-radio' 
+                type='radio' 
+                name='{$pregunta['id']}' 
+                id='radio-{$pregunta['id']}-{$clave}' 
+                value='$clave' 
+                onchange='toggleSelects(this, {$pregunta['id']}, $clave)' $checked>
+            <label class='form-check-label' for='radio-{$pregunta['id']}-{$clave}'>$opcion[label]</label>";
 
-        // Verificar si hay un select asociado a la opción
+        // Mostrar el select para la opción correspondiente
         if (isset($opcion['subLabel']) && count($opcion['subLabel']) > 0) {
             echo "
-            <!-- Select asociado al radio -->
-            <div class='select-container ms-4 mt-2' type='select'
-                 id='select-container-" . $pregunta['id'] . "-" . $clave . "'  
+            <div class='select-container ms-4 mt-2' 
+                 id='select-container-{$pregunta['id']}-$clave'  
                  style='$selectVisible'>
                 <select class='form-select mb-2 w-auto' 
-                        id='select-" . $pregunta['id'] . "-" . $clave . "' 
-                        name='" . $pregunta['id'] . "'>";  // Mantén el `name` del select sin cambios
+                        id='select-{$pregunta['id']}-$clave' 
+                        name='{$pregunta['id']}'>";  // Mantén el `name` del select sin cambios
 
             // Asegurarse de que la opción vacía no sea seleccionada por defecto
-            echo "<option class='text-wrap mx-auto'  value='' disabled selected>Seleccione una opción</option>";
+            echo "<option class='text-wrap mx-auto' value='' disabled selected>Seleccione una opción</option>";
 
-            // Iterar sobre las subopciones (esto hace que se muestren las opciones del select)
+            // Iterar sobre las subopciones
             foreach ($opcion['subLabel'] as $subValue => $subLabel) {
-                // Verificar si la subopción está seleccionada
-                $selected = (isset($_SESSION['respuestas'][$pregunta['id']]) && $_SESSION['respuestas'][$pregunta['id']] == $subValue) ? 'selected' : '';
-                echo "<option class='text-wrap mx-auto' value='" . $subValue . "' $selected>" . $subLabel . "</option>";
+                $selected = ($selectedValue == $subValue) ? 'selected' : '';
+                echo "<option class='text-wrap mx-auto' value='$subValue' $selected>$subLabel</option>";
             }
 
             echo "
@@ -48,12 +55,14 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
             </div>
             ";
         }
+
+        echo "</div>";
     }
 }
 ?>
 
 <script>
-    function toggleSelects(selectedRadio) {
+function toggleSelects(selectedRadio, preguntaId, clave) {
     // Ocultar todos los selects
     const selects = document.querySelectorAll('.select-container');
     
@@ -63,31 +72,28 @@ if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])) {
     });
 
     // Mostrar el select correspondiente solo si el radio está seleccionado
-    const selectId = `select-container-${selectedRadio.name}-${selectedRadio.value}`;
-    const selectContainer = document.getElementById(selectId);
-    
+    const selectContainer = document.getElementById(`select-container-${preguntaId}-${clave}`);
     if (selectedRadio.checked && selectContainer) {
         selectContainer.style.display = 'block';  // Muestra el select
     }
-
-    // Guardar la selección del radio en la sesión
-    saveResponse(selectedRadio.name, selectedRadio.value);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const radios = document.querySelectorAll('.main-radio');
 
     // Inicializa la visibilidad de los selects cuando la página carga
     radios.forEach(radio => {
         if (radio.checked) {
-            toggleSelects(radio);  // Llama a la función para mostrar el select si ya está seleccionado
+            const clave = radio.value;
+            const preguntaId = radio.name;
+            toggleSelects(radio, preguntaId, clave); // Llama a la función para mostrar el select si ya está seleccionado
         }
     });
 
     // Añadir evento para cambiar la visibilidad cuando se selecciona un radio
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
-            toggleSelects(this);  // Cambia la visibilidad cuando se selecciona un radio
+            toggleSelects(this, this.name, this.value);  // Cambia la visibilidad cuando se selecciona un radio
         });
     });
 
@@ -100,11 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const radio = document.getElementById(`radio-${preguntaId}-${clave}`);
             if (this.value !== '' && radio) {
                 radio.checked = true;
-                toggleSelects(radio);
+                toggleSelects(radio, preguntaId, clave);
             }
-
-            // Guardar la selección del select en la sesión
-            saveResponse(this.name, this.value);
         });
 
         // Mantener el radio marcado si el select tiene valor al cargar la página
@@ -115,42 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const radio = document.getElementById(`radio-${preguntaId}-${clave}`);
             if (radio) {
                 radio.checked = true;
-                toggleSelects(radio);
+                toggleSelects(radio, preguntaId, clave);
             }
         }
     });
 });
-
-/* (function() {
-    const form = document.querySelector('form');
-    const checkboxes = form.querySelectorAll('input[type=select]');
-    const checkboxLength = checkboxes.length;
-    const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
-
-    function init() {
-        if (firstCheckbox) {
-            for (let i = 0; i < checkboxLength; i++) {
-                checkboxes[i].addEventListener('change', checkValidity);
-            }
-
-            checkValidity();
-        }
-    }
-
-    function isChecked() {
-        for (let i = 0; i < checkboxLength; i++) {
-            if (checkboxes[i].checked) return true;
-        }
-
-        return false;
-    }
-
-    function checkValidity() {
-        const errorMessage = !isChecked() ? 'Debe seleccionar al menos una opción.' : '';
-        firstCheckbox.setCustomValidity(errorMessage);
-    }
-
-    init();
-})(); */
-
 </script>

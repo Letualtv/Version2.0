@@ -8,25 +8,26 @@
 <?php
 session_start();
 
-error_log("Respuestas en la sesión: " . print_r($_SESSION['respuestas'], true));
-
 include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/controller/PreguntasController.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
-
-if (!isset($_SESSION['respuestas'])) {
-    $_SESSION['respuestas'] = [];
-}
+include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
+$variables = include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/variables.php';
 
 // Asegúrate de que el `clave_id` esté disponible en la sesión
-if (!isset($_SESSION['clave_id'])) {
+if (!isset($_SESSION['clave'])) {
     header('Location: /version2.0/views/errors/errorClave.php');
     exit;
 }
 
-
-
+// Recupera las respuestas del controlador
 $controller = new PreguntasController();
 $resultado = $controller->mostrarPreguntasPorPagina($_GET['n_pag'] ?? 1);
+
+// Mover la recuperación de respuestas dentro de la verificación de `clave_id`
+$respuestas = $controller->recuperarRespuestasDeBD($_SESSION['clave'] ?? '');
+
+if (!isset($_SESSION['respuestas'])) {
+    $_SESSION['respuestas'] = [];
+}
 
 if ($resultado['error']) {
     include_once $resultado['view'];
@@ -34,6 +35,9 @@ if ($resultado['error']) {
     extract($resultado['data']);
     include_once $resultado['view'];
 }
+
+
+
 ?>
 
 <body class="d-flex flex-column min-vh-100">

@@ -3,7 +3,11 @@
     <div class="d-flex row"></div>
     <div class="col-12 col-md-6  text-center">
         <h6 class="navbar-text px-2 px-md-0 align-middle">
-            <?php echo $variables['{$estudio}']; ?>
+        <?php 
+// Accede e imprime un valor específico del array
+echo $variables['$estudio']; 
+?>
+
         </h6>
     </div>
     <div class="col-12 col-md-6 text-center">
@@ -19,4 +23,6 @@
             </div>
         <?php endif; ?>
     </div>
-</nav>
+</nav><?php
+
+?>

@@ -1,45 +1,19 @@
-.icon-change {
-    transition: transform 0.3s !important;
-}
-.icon-change:hover .fa-trash {
-    display: none !important;
-}
-.fa-trash-arrow-up {
-    display: none !important;
-}
-.icon-change:hover .fa-trash-arrow-up {
-    display: inline !important;
-}
-.icon-change:hover .fa-trash {
-    display: none !important;
-}
 
 
 .add-option-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.add-option-container::before, 
-.add-option-container::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #ced4da;
-    margin: 0 1rem;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 1rem !important;
 }
 
 
-
-
-
-
-.form-group {
-    margin-bottom: 1rem;
+.valor-input {
+    width: 60% !important;
 }
+
 
 #preguntasList {
-    max-height: 50vh !important;
-    overflow-y: auto;
+    max-height: 60vh  !important;
+    overflow-y: auto !important;
 }

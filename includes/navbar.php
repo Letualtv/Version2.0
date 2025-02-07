@@ -2,6 +2,8 @@
         <!-- Logos -->
         <div class="text-center container-fluid mb-4">
             <?php
+
+            
             // Directorio de imágenes
             $dir = 'img/';
 
@@ -30,7 +32,10 @@
 
         <!-- Título -->
         <div class="text-center my-4 mx-2">
-            <h3><?php echo $variables['{$estudio}']; ?></h3>
+            <h3><?php 
+           echo $variables['$estudio']; 
+           
+           ?></h3>
         </div>
 
         <!-- Menú -->

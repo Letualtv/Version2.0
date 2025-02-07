@@ -1,9 +1,10 @@
+
 <?php if (isset($pregunta['opciones']) && is_array($pregunta['opciones'])): ?>
     <?php foreach ($pregunta['opciones'] as $clave => $opcion): ?>
         <?php
-        // Verifica si hay una respuesta guardada en la sesión para esta pregunta
+        // Verifica si hay una respuesta en las respuestas recuperadas para esta pregunta
         $checked = '';
-        if (isset($_SESSION['respuestas'][$pregunta['id']]) && $_SESSION['respuestas'][$pregunta['id']] == $clave) {
+        if (isset($respuestas[$pregunta['id']]) && $respuestas[$pregunta['id']] == $clave) {
             $checked = 'checked';
         }
 

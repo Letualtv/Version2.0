@@ -2,11 +2,11 @@
 // Obtener la URL actual
 $currentUrl = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-include_once __DIR__ . '/../controller/GeneralController.php';
 // Llamar a la función para obtener los datos del JSON y reemplazar variables
-$variables = GeneralController();
+$variables = include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/variables.php';
 
-
+// Para poder usarlo utilizamos:
+// echo $variables['$variable'];
 
 // Configurar el menú dinámico
 $menuItems = [
@@ -27,13 +27,12 @@ $menuItems = [
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/app.css">
     <title><?php echo $pageTitle ?? 'Mi Sitio Web'; ?></title>
-
-    <link rel="icon" href="../favicon.ico">
 </head>
 <body>
 
 
-<?php include __DIR__ . '/navbar.php'; ?>
+<?php include __DIR__ . '/navbar.php'; 
+?>
 
 
 

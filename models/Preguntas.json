@@ -6,10 +6,11 @@
         "titulo": "Pregunta de tipo radio",
         "subTitulo": "",
         "opciones": {
-            "1": "No, trabajo actualmente en esta instituci\u00f3n",
+            "1": "No, trabajo actualmente en esta instituci\u00f3n**HOLA**",
             "2": "He trabajado, pero estoy jubilado o no activo",
             "3": "He trabajado, pero ahora trabajo en otro lugar",
-            "4": "S\u00ed trabajo aqu\u00ed"
+            "4": "S\u00ed trabajo aqu\u00ed",
+            "5": "Que te parece $estudio"
         }
     },
     {
@@ -20,8 +21,8 @@
         "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
             "1": "Indicar a\u00f1o:",
-            "2": "No me acuerdo",
-            "3": "No deseo contestar"
+            "88": "No me acuerdo $hola",
+            "99": "No deseo contestar"
         },
         "valores": {
             "min": 1985,
@@ -55,59 +56,47 @@
         }
     },
     {
-        "id": 4,
+        "id": "4",
         "n_pag": 4,
         "tipo": "formSelect",
         "titulo": "Pregunta 4: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
         "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
             "1": {
-                "label": "En una universidad en Espa\u00f1a",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
                     "11": "Universidad Espa\u00f1ola 1",
                     "12": "Universidad Espa\u00f1ola 2",
                     "13": "Universidad Espa\u00f1ola 3",
-                    "14": "Universidad Espa\u00f1ola 4",
-                    "15": "Universidad Espa\u00f1ola 5",
-                    "16": "Universidad Espa\u00f1ola 6",
-                    "17": "Universidad Espa\u00f1ola 7",
-                    "18": "Universidad Espa\u00f1ola 8",
-                    "19": "Universidad Espa\u00f1ola 9",
-                    "111": "Otra universidad"
+                    "14": "Otra universidad"
                 }
             },
             "2": {
-                "label": "En un centro de investigaci\u00f3n en Espa\u00f1a (incluyendo hospitales y centros privados)",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
                     "21": "Universidad Espa\u00f1ola 1",
                     "22": "Universidad Espa\u00f1ola 2",
                     "23": "Universidad Espa\u00f1ola 3",
-                    "24": "Universidad Espa\u00f1ola 4",
-                    "25": "Universidad Espa\u00f1ola 5",
-                    "26": "Universidad Espa\u00f1ola 6",
-                    "27": "Universidad Espa\u00f1ola 7",
-                    "28": "Universidad Espa\u00f1ola 8",
-                    "29": "Universidad Espa\u00f1ola 9",
-                    "221": "Otra universidad"
+                    "24": "Otra universidad"
+                }
+            },
+            "3": {
+                "label": "Una universidad espa\u00f1ola:",
+                "subLabel": {
+                    "31": "Universidad Espa\u00f1ola 1",
+                    "32": "Universidad Espa\u00f1ola 2",
+                    "33": "Universidad Espa\u00f1ola 3",
+                    "34": "Otra universidad"
                 }
             },
             "4": {
-                "label": "En una empresa"
+                "label": "Una universidad espa\u00f1ola:"
             },
             "5": {
-                "label": "En otra administraci\u00f3n p\u00fablica (sin actividad de investigaci\u00f3n)"
+                "label": "Una universidad espa\u00f1ola:"
             },
             "6": {
-                "label": "En una instituci\u00f3n privada sin \u00e1nimo de lucro (sin actividad de investigaci\u00f3n)"
-            },
-            "7": {
-                "label": "Trabajo por cuenta propia"
-            },
-            "8": {
-                "label": "Estoy desempleado\/a"
-            },
-            "9": {
-                "label": "Otros"
+                "label": "Una universidad espa\u00f1ola:"
             }
         }
     },
@@ -119,57 +108,57 @@
         "subTitulo": "Selecciona tu puesto actual.",
         "opciones": {
             "1": {
-                "label": "Profesorado de universidad",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "11": "Catedr\u00e1tico\/a",
-                    "12": "Profesor\/a titular",
-                    "13": "Profesor\/a contratado\/a, doctor\/a o permanente laboral",
-                    "14": "Profesor\/a ayudante doctor\/a",
-                    "15": "Profesor\/a ayudante",
-                    "16": "Profesor\/a asociado\/a",
-                    "17": "Profesor\/a colaborador\/a",
-                    "18": "Profesor\/a sustituto\/a, suscrito\/a interino\/a o similar",
-                    "19": "Otros profesores\/as de universidad"
+                    "11": "Universidad Espa\u00f1ola 1",
+                    "12": "Universidad Espa\u00f1ola 2",
+                    "13": "Universidad Espa\u00f1ola 3",
+                    "14": "Otra universidad"
                 }
             },
             "2": {
-                "label": "Investigadores\/as de plantilla de centros p\u00fablicos de investigaci\u00f3n",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "21": "Profesor\/a de investigaci\u00f3n de OPI",
-                    "22": "Investigador\/a cient\u00edfico\/a de OPI",
-                    "23": "Cient\u00edfico\/a titular de OPI",
-                    "24": "Investigadores\/as de plantilla de otros centros p\u00fablicos de investigaci\u00f3n"
+                    "21": "Universidad Espa\u00f1ola 1",
+                    "22": "Universidad Espa\u00f1ola 2",
+                    "23": "Universidad Espa\u00f1ola 3",
+                    "24": "Otra universidad"
                 }
             },
             "3": {
-                "label": "Investigadores\/as contratados\/as",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "31": "Investigador\/a contratado\/a a cargo de programa posdoctoral (fases iniciales)",
-                    "32": "Investigador\/a contratado\/a a cargo de programa posdoctoral (fases avanzadas)",
-                    "33": "Investigador\/a contratado\/a doctor\/a (a cargo de proyecto o similar)"
+                    "31": "Universidad Espa\u00f1ola 1",
+                    "32": "Universidad Espa\u00f1ola 2",
+                    "33": "Universidad Espa\u00f1ola 3",
+                    "34": "Otra universidad"
                 }
             },
             "4": {
-                "label": "Tecn\u00f3logos\/as o t\u00e9cnicos\/as de investigaci\u00f3n",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "41": "Tecn\u00f3logo\/a o t\u00e9cnico\/a de investigaci\u00f3n de plantilla (titulado superior especializado o similar)",
-                    "42": "Tecn\u00f3logo\/a o t\u00e9cnico\/a de investigaci\u00f3n contratado (a cargo de proyecto o similar)"
+                    "41": "Universidad Espa\u00f1ola 1",
+                    "42": "Universidad Espa\u00f1ola 2",
+                    "43": "Universidad Espa\u00f1ola 3",
+                    "44": "Otra universidad"
                 }
             },
             "5": {
-                "label": "Investigadores\/as en formaci\u00f3n y becarios\/as",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "51": "Investigador\/a predoctoral en formaci\u00f3n (contratos FPI, FPU o similares)",
-                    "52": "Becario\/a u otro puesto formativo remunerado"
+                    "51": "Universidad Espa\u00f1ola 1",
+                    "52": "Universidad Espa\u00f1ola 2",
+                    "53": "Universidad Espa\u00f1ola 3",
+                    "54": "Otra universidad"
                 }
             },
             "6": {
-                "label": "Personal de administraci\u00f3n y servicios o similar",
+                "label": "Una universidad espa\u00f1ola:",
                 "subLabel": {
-                    "61": "Grupo 1: Titulado universitario superior",
-                    "62": "Grupo 2: Titulado universitario de grado medio o similar",
-                    "63": "Grupo 3: T\u00e9cnico especialista (bachiller, FP superior o equivalente)",
-                    "64": "Grupo 4: Oficiales y auxiliares (graduado en educaci\u00f3n secundaria, t\u00e9cnico de FP, educaci\u00f3n primaria, etc)"
+                    "61": "Universidad Espa\u00f1ola 1",
+                    "62": "Universidad Espa\u00f1ola 2",
+                    "63": "Universidad Espa\u00f1ola 3",
+                    "64": "Otra universidad"
                 }
             }
         }
@@ -218,7 +207,8 @@
             "12": "No competitivo - Competitivo",
             "13": "Estresante - Relajado",
             "14": "Discriminador - Inclusivo"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 15,
@@ -240,7 +230,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 19,
@@ -262,7 +253,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 23,
@@ -284,7 +276,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 27,
@@ -316,7 +309,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 35,
@@ -338,7 +332,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 39,
@@ -363,7 +358,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 46,
@@ -388,7 +384,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 53,
@@ -410,7 +407,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 57,
@@ -424,7 +422,7 @@
             "99": "No deseo contestar"
         },
         "valores": {
-            "min": 0,
+            "min": "0",
             "max": "100",
             "placeholder": "0-100%"
         }
@@ -438,7 +436,8 @@
             "58": "Engorrosos - F\u00e1ciles",
             "59": "Innecesarios - Necesarios",
             "60": "Inefectivos - Efectivos"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 61,
@@ -458,7 +457,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 63,
@@ -480,7 +480,8 @@
                 "7": "Muy de acuerdo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 67,
@@ -505,7 +506,8 @@
                 "7": "Condicionan totalmente a la instituci\u00f3n"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 74,
@@ -530,7 +532,8 @@
                 "7": "Condicionan totalmente a la instituci\u00f3n"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 81,
@@ -556,7 +559,8 @@
                 "7": "Presta mucho apoyo"
             },
             "tres": ""
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 89,
@@ -571,7 +575,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "89": "Totalmente con Mar\u00eda - Totalmente con Pedro "
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 90,
@@ -586,7 +591,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "90": "Totalmente con Mar\u00eda - Totalmente con Pedro "
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 91,
@@ -601,7 +607,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "91": "Totalmente con Ana - Totalmente con Margarita"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 92,
@@ -616,7 +623,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "92": "Totalmente con Francisco - Totalmente con Carmen"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 93,
@@ -631,7 +639,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "93": "Totalmente con Margarita - Totalmente con Jos\u00e9"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 94,
@@ -646,14 +655,15 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "93": "Totalmente con Antonio - Totalmente con Mar\u00eda"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 95,
         "n_pag": 30,
         "tipo": "matrix1",
         "titulo": "A continuaci\u00f3n, se pregunta sobre situaciones hipot\u00e9ticas",
-        "texto1": "<b>Antonio<\/b> y <b>Mar\u00eda<\/b> trabajan en <?php $institucion ?>   desde hace a\u00f1os.",
+        "texto1": "<b>Antonio<\/b> y <b>Mar\u00eda<\/b> trabajan en {$institucion}   desde hace a\u00f1os.",
         "lista": {
             "Antonio": "<b>Antonio<\/b> dice: \"Esta instituci\u00f3n en general <b>recibe apoyos influyentes<\/b> que le ayudan a cumplir sus objetivos.\"",
             "Mar\u00eda": "<b>Mar\u00eda<\/b> dice: \"Esta instituci\u00f3n en general est\u00e1 <b>hu\u00e9rfana de apoyos influyentes<\/b> y depende de lo que nosotros podamos conseguir.\""
@@ -661,7 +671,8 @@
         "texto2": "<b>\u00bfCon cu\u00e1l de las afirmaciones est\u00e1 m\u00e1s de acuerdo?<\/b>",
         "opciones": {
             "93": "Totalmente con Antonio - Totalmente con Mar\u00eda"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 96,
@@ -674,10 +685,11 @@
             "99": "No deseo contestar"
         },
         "valores": {
-            "min": 1950,
+            "min": "1950",
             "max": "<?php echo date('Y'); ?>",
             "placeholder": "AAAA"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 97,
@@ -690,31 +702,27 @@
             "99": "No deseo contestar"
         },
         "valores": {
-            "min": 1950,
+            "min": "1950",
             "max": "<?php echo date('Y'); ?>",
             "placeholder": "AAAA"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 98,
         "n_pag": 33,
         "tipo": "matrixPersonalizada",
-        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a <?php $institucion ?>:",
-        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigaci\u00f3n o visitas)",
+        "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a :",
+        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigación o visitas)",
         "opciones": {
-            "98": "Una universidad o centro de investigaci\u00f3n en otro pa\u00eds",
-            "99": "Una empresa o entidad privada en otro pa\u00eds",
-            "100": "Un organismo internacional o una administraci\u00f3n en otro pa\u00eds",
-            "101": "Una universidad p\u00fablica",
+            "98": "Una universidad o centro de investigación en otro país",
+            "99": "Una empresa o entidad privada en otro país",
+            "100": "Un organismo internacional o una administración en otro país",
+            "101": "Una universidad pública",
             "102": "Una universidad privada",
-            "103": "Un centro de investigaci\u00f3n p\u00fablico",
-            "104": "Otra instituci\u00f3n de la administraci\u00f3n (estatal, auton\u00f3mica o local)",
-            "105": "Una instituci\u00f3n privada sin \u00e1nimo de lucro"
-        },
-        "subOpciones": {
-            "1": "S\u00ed, he trabajado.",
-            "2": "He realizado estancias de investigacion o estudios.",
-            "3": "No he trabajado, ni realizado estancias."
+            "103": "Un centro de investigación público",
+            "104": "Otra institución de la administración (estatal, autonómica o local)",
+            "105": "Una institución privada sin ánimo de lucro"
         }
     },
     {
@@ -732,36 +740,33 @@
             "111": "Un centro de investigaci\u00f3n p\u00fablico",
             "112": "Otra instituci\u00f3n de la administraci\u00f3n (estatal, auton\u00f3mica o local)",
             "113": "Una instituci\u00f3n privada sin \u00e1nimo de lucro"
-        },
-        "subOpciones": {
-            "1": "S\u00ed, he trabajado.",
-            "2": "He realizado estancias de investigacion o estudios.",
-            "3": "No he trabajado, ni realizado estancias."
         }
     },
     {
         "id": 114,
         "n_pag": 35,
         "tipo": "radio",
-        "titulo": "Sexo <?php echo $institucion ?>",
+        "titulo": "Sexo ",
         "opciones": {
             "1": "Hombre",
             "2": "Mujer",
             "3": "Sin especificar"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 115,
         "n_pag": 36,
         "tipo": "radio",
-        "titulo": "\u00bfCu\u00e1l es la <b>titulaci\u00f3n m\u00e1s alta<\/b> que ha finalizado?",
+        "titulo": "\u00bfCu\u00e1l es la <b>titulaci\u00f3n m\u00e1s alta<\/b> que ha finalizado $institucion ?",
         "opciones": {
             "1": "Doctorado",
             "2": "Licenciatura, m\u00e1ster o grado",
             "3": "Diplomatura o similar",
             "4": "Estudios secundarios (FP o Bachillerato)",
             "5": "Estudios primarios"
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 116,
@@ -778,16 +783,11 @@
                     "21": "Universidad Espa\u00f1ola 1",
                     "22": "Universidad Espa\u00f1ola 2",
                     "23": "Universidad Espa\u00f1ola 3",
-                    "24": "Universidad Espa\u00f1ola 4",
-                    "25": "Universidad Espa\u00f1ola 5",
-                    "26": "Universidad Espa\u00f1ola 6",
-                    "27": "Universidad Espa\u00f1ola 7",
-                    "28": "Universidad Espa\u00f1ola 8",
-                    "29": "Universidad Espa\u00f1ola 9",
-                    "221": "Otra universidad"
+                    "24": "Otra universidad"
                 }
             }
-        }
+        },
+        "subTitulo": ""
     },
     {
         "id": 117,
@@ -797,6 +797,7 @@
         "opciones": {
             "1": "S\u00ed",
             "2": "No"
-        }
+        },
+        "subTitulo": ""
     }
 ]

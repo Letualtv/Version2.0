@@ -2,9 +2,6 @@
 
 <?php
     session_start();  // Iniciar sesión
-    session_unset();  // Elimina todas las variables de sesión
-    session_destroy();  // Destruye la sesión completamente
-    
 
 // Mostrar navegación
 include __DIR__ . '/../../views/auth/procesoLogin.php';
