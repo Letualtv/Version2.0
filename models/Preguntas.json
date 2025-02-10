@@ -11,14 +11,17 @@
             "3": "He trabajado, pero ahora trabajo en otro lugar",
             "4": "S\u00ed trabajo aqu\u00ed",
             "5": "Que te parece $estudio",
-            "6": "Me gusta $lince"
+            "6": "Me gusta el $estudio"
+        },
+        "filtro": {
+            "2": "3"
         }
     },
     {
         "id": "2",
         "n_pag": 2,
         "tipo": "numberInput",
-        "titulo": "Pregunta 2: \u00bfQu\u00e9 lenguajes de programaci\u00f3n conoces?",
+        "titulo": "Pregunta 2",
         "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
             "1": "Indicar a\u00f1o:",

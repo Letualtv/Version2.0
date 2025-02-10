@@ -14,14 +14,14 @@
 </head>
 
 <body class="container-fluid d-flex flex-column min-vh-100">
-<nav class="navbar navbar-light my-2">
-  <div class="container-fluid">
-    <div class="navbar-brand" href="#">
-        <span class="h4">Panel de control</span> - <span class="font-monospace"><?php include 'visualizadorVersion.php'; ?></span>
-    </div>
-    <img src="/version2.0/public/img/2.png" alt="" width="180"  class="d-inline-block align-text-top ms-auto" >
-  </div>
-</nav>
+    <nav class="navbar navbar-light my-2">
+        <div class="container-fluid">
+            <div class="navbar-brand" href="#">
+                <span class="h4">Panel de control</span> - <span class="font-monospace"><?php include 'visualizadorVersion.php'; ?></span>
+            </div>
+            <img src="/version2.0/public/img/2.png" alt="" width="180" class="d-inline-block align-text-top ms-auto">
+        </div>
+    </nav>
 
 
 
@@ -33,6 +33,11 @@
                 <div class="card-header">
                     <h5 class="mb-0"><i class="fa-solid fa-stream me-2"></i>Listado de preguntas</h5>
                 </div>
+                <!-- Barra de Búsqueda -->
+<div class="input-group p-3">
+    <input type="text" class="form-control shadow-sm" id="searchQuestions" placeholder="Buscar pregunta por título, ID o subtítulo...">
+    <button class="btn btn-outline-secondary" type="button" onclick="buscarPregunta()">Buscar</button>
+</div>
                 <ul id="preguntasList" class="list-group list-group-flush"></ul>
                 <div class="bg-body py-2 justify-content-end d-flex">
                     <!-- Botón Exportar -->
@@ -50,146 +55,31 @@
         </div>
 
         <div class="col-lg-6 col-12 ">
-            <!-- Formulario de Pregunta -->
-            <div class=" card mb-2">
-                <div class="card-header">
-                    <h5 class="mb-0"><i class="fa-solid fa-list-ul me-2"></i></i>Agregar / modificar pregunta</h5>
-                </div>
-                <div class="bg-body p-2">
-                    <form id="preguntaForm">
-                        <div class="row g-3">
-                            <!-- ID de la Pregunta -->
-                            <div class="col-md-4">
-                                <label for="preguntaId" class="form-label">ID de la pregunta</label>
-                                <input type="number" class="form-control shadow-sm" id="preguntaId" name="preguntaId" required>
-                            </div>
-                            <!-- Número de Página -->
-                            <div class="col-md-4">
-                                <label for="n_pag" class="form-label">Número de página</label>
-                                <input type="number" class="form-control shadow-sm" id="n_pag" required>
-                            </div>
-                            <!-- Tipo de Pregunta -->
-                            <div class="col-md-4">
-                                <label for="tipo" class="form-label">Tipo de pregunta</label>
-                                <select class="form-select shadow-sm" id="tipo" required onchange="ajustarParametros()">
-                                    <option value="radio">Radio</option>
-                                    <option value="numberInput">Entrada numérica</option>
-                                    <option value="checkbox">Checkbox</option>
-                                    <option value="formSelect">Radio desplegable</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <!-- Título y Subtítulo -->
-                        <div class="row g-3 mt-3">
-                            <div class="col-md-6">
-                                <label for="titulo" class="form-label">Título de la pregunta</label>
-                                <input type="text" class="form-control shadow-sm" id="titulo" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="subTitulo" class="form-label">Subtítulo de la pregunta</label>
-                                <input type="text" class="form-control shadow-sm" id="subTitulo">
-                            </div>
-                        </div>
+            <?php include './vistasControlPanel/modificar_pregunta.php';   ?>
 
-                        <!-- Campos Adicionales para Entradas Numéricas -->
-                        <div id="valores" class="mt-3">
-                            <div id="numberInputFields" class="bg-light p-3 rounded" style="display: none;">
-                                <h6 class="text-muted">Valores para la entrada numérica:</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <label for="min" class="form-label">Valor mínimo</label>
-                                        <input type="number" class="form-control" id="min" name="valores[min]">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="max" class="form-label">Valor máximo</label>
-                                        <input type="number" class="form-control" id="max" name="valores[max]">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="placeholder" class="form-label">Placeholder</label>
-                                        <input type="text" class="form-control" id="placeholder" name="valores[placeholder]">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Opciones Dinámicas -->
-                        <div id="opciones" class="mt-3">
-                            <label class="form-label">Opciones:</label>
-                            <div id="opcionesContainer"></div>
-                        </div>
-                        <div class="add-option-container my-2">
-                            <a type="button" class="btn btn-outline-primary hover-zoom" onclick="agregarOpcion()">
-                                <i class="fa-solid fa-plus"></i> Agregar opción
-                            </a>
-                        </div>
-
-                        <!-- Botón Guardar -->
-                        <div class="d-flex justify-content-end mt-4">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa-solid fa-save me-2"></i>Guardar pregunta
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Variables Generales -->
 
             <?php include './vistasControlPanel/admin_variables.php';
 
 
             ?>
 
-            <!-- Flujo de Encuesta -->
-            <div class="col-12 card mb-2">
-                <div class="card-header">
-                    <h5 class="mb-0"><i class="fa-solid fa-shuffle me-2"></i></i>Flujo de Encuesta</h5>
-                </div>
-                <div class="bg-body p-2">
-                    <form id="surveyFlowForm">
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <label for="flowOrder" class="form-label">Orden de las páginas</label>
-                                <input type="text" class="form-control shadow-sm" id="flowOrder" placeholder="Ej: 1,2,3,4" required>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button type="submit" class="btn btn-success">
-                                <i class="fa-solid fa-check me-2"></i>Guardar cambios
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
         </div>
     </div>
 
     <!-- Modal de Confirmación de Borrado -->
-    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Borrado</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que deseas borrar esta pregunta?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteButton">Borrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+            <?php include './vistasControlPanel/modal_borrado.php';   ?>
+
     <footer class="bg-light  text-lg-end mt-5">
         <div class="container-fluid p-2 text-muted">
-        Desarrollado con 	&#x2764; por <a href="https://github.com/Letualtv/" target="_blank" class="">Antonio Pulido</a>
+            Desarrollado con &#x2764; por <a href="https://github.com/Letualtv/" target="_blank" class="">Antonio Pulido</a>
         </div>
     </footer>
     <!-- Scripts -->
     <script src="./js/agregarEliminar.js"></script>
+    <script src="./js/jumpRules.js"></script>
     <script src="./js/admin_variables.js"></script>
     <script src="./js/confBorrarCargPreguntas.js"></script>
     <script src="./js/cargarEditarGuardar.js"></script>

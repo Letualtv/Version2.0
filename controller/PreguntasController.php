@@ -16,6 +16,8 @@ class PreguntasController
         // Recuperar respuestas de la base de datos y cargarlas en la sesión
         $respuestas = $this->recuperarRespuestasDeBD($claveId);
 
+
+        
         // Redirigir al usuario a la última página completada si no se especifica una página
         if (!isset($_GET['n_pag'])) {
             $currentPag = $this->calcularPaginaActual($respuestas);
@@ -140,15 +142,92 @@ class PreguntasController
     }
 
     private function calcularPaginacion(array $preguntas, int $n_pag): array
-    {
-        $prevPag = $n_pag > 1 ? $n_pag - 1 : null;
-        $nextPag = count(array_filter($preguntas, fn($p) => $p['n_pag'] === $n_pag + 1)) > 0 ? $n_pag + 1 : null;
-        return [
-            'prevPag' => $prevPag,
-            'nextPag' => $nextPag,
-        ];
+{
+    // Obtener las respuestas actuales
+    $respuestas = $_SESSION['respuestas'] ?? [];
+
+    // Buscar la pregunta actual
+    $preguntaActual = null;
+    foreach ($preguntas as $pregunta) {
+        if ($pregunta['n_pag'] === $n_pag) {
+            $preguntaActual = $pregunta;
+            break;
+        }
     }
 
+    // Calcular la página siguiente (nextPag)
+    $nextPag = null;
+    if ($preguntaActual && isset($preguntaActual['jump_rules'])) {
+        $idPreguntaActual = $preguntaActual['id'];
+        if (isset($respuestas[$idPreguntaActual])) {
+            $respuestaSeleccionada = $respuestas[$idPreguntaActual];
+            error_log("Respuesta seleccionada para la pregunta {$idPreguntaActual}: {$respuestaSeleccionada}");
+
+            // Verificar si la respuesta es numérica
+            if (is_numeric($respuestaSeleccionada)) {
+                $respuestaSeleccionada = (int)$respuestaSeleccionada; // Convertir a entero
+
+                foreach ($preguntaActual['jump_rules'] as $rango => $paginaDestino) {
+                    // Interpretar el rango
+                    if (strpos($rango, '-') !== false) {
+                        // Rango del tipo "X-Y"
+                        list($min, $max) = array_map('intval', explode('-', $rango));
+                        if ($respuestaSeleccionada >= $min && $respuestaSeleccionada <= $max) {
+                            $nextPag = $paginaDestino;
+                            error_log("Rango '{$rango}' coincide. Siguiente página: {$nextPag}");
+                            break;
+                        }
+                    } elseif (strpos($rango, '+') !== false) {
+                        // Rango del tipo "X+"
+                        $min = (int)rtrim($rango, '+');
+                        if ($respuestaSeleccionada >= $min) {
+                            $nextPag = $paginaDestino;
+                            error_log("Rango '{$rango}' coincide. Siguiente página: {$nextPag}");
+                            break;
+                        }
+                    } else {
+                        // Valor único
+                        $valorUnico = (int)$rango;
+                        if ($respuestaSeleccionada === $valorUnico) {
+                            $nextPag = $paginaDestino;
+                            error_log("Valor único '{$rango}' coincide. Siguiente página: {$nextPag}");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Si no hay regla de salto, calcular la siguiente página normalmente
+    if (!$nextPag) {
+        $nextPag = count(array_filter($preguntas, fn($p) => $p['n_pag'] === $n_pag + 1)) > 0 ? $n_pag + 1 : null;
+        error_log("No hay regla de salto. Siguiente página calculada: {$nextPag}");
+    }
+
+    // Calcular la página anterior (prevPag)
+    $prevPag = null;
+    if ($n_pag > 1) {
+        // Buscar la última página respondida antes de la página actual
+        $ultimaPaginaRespondida = 1;
+        foreach ($respuestas as $preguntaId => $valor) {
+            foreach ($preguntas as $pregunta) {
+                if ($pregunta['id'] == $preguntaId && $pregunta['n_pag'] < $n_pag) {
+                    if ($pregunta['n_pag'] > $ultimaPaginaRespondida) {
+                        $ultimaPaginaRespondida = $pregunta['n_pag'];
+                    }
+                }
+            }
+        }
+        $prevPag = $ultimaPaginaRespondida;
+        error_log("Página anterior calculada: {$prevPag}");
+    }
+
+    return [
+        'prevPag' => $prevPag,
+        'nextPag' => $nextPag,
+    ];
+}
     public function recuperarRespuestasDeBD($clave): array
     {
         global $pdo;
@@ -174,19 +253,18 @@ class PreguntasController
 
         return $respuestas;
     }
-
     public function calcularPaginaActual(array $respuestas): int
     {
         $preguntas = $this->obtenerPreguntas();
-
+    
         if (empty($respuestas)) {
             error_log("No hay respuestas, redirigiendo a la página 1.");
             return 1; // Si no hay respuestas, redirige a la primera página
         }
-
+    
         // Inicializar la página por defecto
         $ultimaPagina = 1;
-
+    
         // Buscar la última pregunta respondida y su página
         foreach ($respuestas as $preguntaId => $valor) {
             foreach ($preguntas as $pregunta) {
@@ -198,8 +276,8 @@ class PreguntasController
                 }
             }
         }
-
-        error_log("Última página calculada: $ultimaPagina");
+    
+        error_log("Última página calculada: {$ultimaPagina}");
         return $ultimaPagina; // Retornar la página correspondiente a la última pregunta respondida
     }
 

@@ -100,6 +100,7 @@ const tipoMap = {
 function confirmarBorrarPregunta(id) {
     const confirmDeleteButton = document.getElementById('confirmDeleteButton');
     confirmDeleteButton.onclick = function () {
+        
         borrarPregunta(id);
         const confirmDeleteModal = document.getElementById('confirmDeleteModal');
         const modalInstance = bootstrap.Modal.getInstance(confirmDeleteModal);
@@ -143,4 +144,24 @@ function ajustarParametros() {
     } else {
         numberInputFields.style.display = "none";
     }
+}
+// Función para buscar preguntas
+function buscarPregunta() {
+    const searchTerm = document.getElementById("searchQuestions").value.toLowerCase();
+    const tableBody = document.querySelector("#preguntasList tbody");
+    const rows = tableBody.querySelectorAll("tr");
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let matchFound = false;
+
+        cells.forEach(cell => {
+            if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                matchFound = true;
+            }
+        });
+
+        // Mostrar u ocultar la fila según el resultado de la búsqueda
+        row.style.display = matchFound ? "" : "none";
+    });
 }

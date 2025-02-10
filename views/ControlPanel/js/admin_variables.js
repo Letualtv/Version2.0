@@ -31,16 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Función para mostrar notificaciones
-    function mostrarNotificacion(mensaje, tipo = "success") {
-        const notificationContainer = document.getElementById("notificationContainer");
-
+    function mostrarNotificacion(mensaje, tipo = "success", duracion = 5000) {
+        // Crear el contenedor si no existe
+        let notificationContainer = document.getElementById("notificationContainer");
+        if (!notificationContainer) {
+            notificationContainer = document.createElement("div");
+            notificationContainer.id = "notificationContainer";
+            notificationContainer.className = "toast-container position-fixed top-0 end-0 p-3";
+            document.body.appendChild(notificationContainer);
+        }
+    
         // Crear el elemento de notificación
         const notification = document.createElement("div");
         notification.classList.add("toast", "align-items-center", "text-white", `bg-${tipo}`, "border-0", "mb-3");
         notification.setAttribute("role", "alert");
         notification.setAttribute("aria-live", "assertive");
         notification.setAttribute("aria-atomic", "true");
-
+    
         // Contenido de la notificación
         notification.innerHTML = `
             <div class="d-flex">
@@ -48,14 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         `;
-
+    
         // Agregar la notificación al contenedor
         notificationContainer.appendChild(notification);
-
+    
         // Inicializar el toast de Bootstrap
-        const toast = new bootstrap.Toast(notification, { delay: 3000 }); // Duración de 3 segundos
+        const toast = new bootstrap.Toast(notification, { delay: duracion });
         toast.show();
-
+    
         // Eliminar la notificación después de que se oculte
         notification.addEventListener("hidden.bs.toast", () => {
             notification.remove();
