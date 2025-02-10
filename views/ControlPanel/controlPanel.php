@@ -14,20 +14,29 @@
 </head>
 
 <body class="container-fluid d-flex flex-column min-vh-100">
-    <h1 class="text-center text-primary ">Panel de Control (Pre-Alpha)</h1>
-    <hr class="my-3">
+<nav class="navbar navbar-light my-2">
+  <div class="container-fluid">
+    <div class="navbar-brand" href="#">
+        <span class="h4">Panel de control</span> - <span class="font-monospace"><?php include 'visualizadorVersion.php'; ?></span>
+    </div>
+    <img src="/version2.0/public/img/2.png" alt="" width="180"  class="d-inline-block align-text-top ms-auto" >
+  </div>
+</nav>
+
+
+
 
     <div class="row d-flex">
         <!-- Lista de Preguntas -->
         <div class="col-12 col-lg-6">
-        <div class="card ">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fa-solid fa-stream me-2"></i>Listado de preguntas</h5>
-            </div>
-            <ul id="preguntasList" class="list-group list-group-flush"></ul>
-            <div class="bg-body py-2 justify-content-end d-flex">
-                <!-- Botón Exportar -->
-                <button type="button" class="btn btn-success m-2 dropdown-toggle ms-auto " data-bs-toggle="dropdown">
+            <div class="card ">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fa-solid fa-stream me-2"></i>Listado de preguntas</h5>
+                </div>
+                <ul id="preguntasList" class="list-group list-group-flush"></ul>
+                <div class="bg-body py-2 justify-content-end d-flex">
+                    <!-- Botón Exportar -->
+                    <button type="button" class="btn btn-success m-2 dropdown-toggle ms-auto " data-bs-toggle="dropdown">
                         Exportar
                     </button>
                     <ul class="dropdown-menu ">
@@ -127,10 +136,10 @@
 
             <!-- Variables Generales -->
 
-<?php include './vistasControlPanel/admin_variables.php' ;
+            <?php include './vistasControlPanel/admin_variables.php';
 
 
-?>
+            ?>
 
             <!-- Flujo de Encuesta -->
             <div class="col-12 card mb-2">
@@ -174,7 +183,11 @@
             </div>
         </div>
     </div>
-
+    <footer class="bg-light  text-lg-end mt-5">
+        <div class="container-fluid p-2 text-muted">
+        Desarrollado con 	&#x2764; por <a href="https://github.com/Letualtv/" target="_blank" class="">Antonio Pulido</a>
+        </div>
+    </footer>
     <!-- Scripts -->
     <script src="./js/agregarEliminar.js"></script>
     <script src="./js/admin_variables.js"></script>

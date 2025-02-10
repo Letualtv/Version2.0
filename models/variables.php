@@ -4,4 +4,5 @@ return array (
   '$hola' => 'hola amigo',
   '$hola2' => 'hola amigo2',
   '$dem01' => 'edicion de la variable',
+  '$lince' => 'Hola soy un lince',
 );

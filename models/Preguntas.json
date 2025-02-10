@@ -6,11 +6,12 @@
         "titulo": "Pregunta de tipo radio",
         "subTitulo": "",
         "opciones": {
-            "1": "No, trabajo actualmente en esta instituci\u00f3n**HOLA**",
+            "1": "No, trabajo actualmente en esta instituci\u00f3n",
             "2": "He trabajado, pero estoy jubilado o no activo",
             "3": "He trabajado, pero ahora trabajo en otro lugar",
             "4": "S\u00ed trabajo aqu\u00ed",
-            "5": "Que te parece $estudio"
+            "5": "Que te parece $estudio",
+            "6": "Me gusta $lince"
         }
     },
     {
@@ -21,13 +22,13 @@
         "subTitulo": "Marca todos los lenguajes que dominas.",
         "opciones": {
             "1": "Indicar a\u00f1o:",
-            "88": "No me acuerdo $hola",
-            "99": "No deseo contestar"
+            "2": "No me acuerdo $hola",
+            "3": "No deseo contestar"
         },
         "valores": {
-            "min": 1985,
+            "min": 2000,
             "max": 2024,
-            "placeholder": "A\u00f1o"
+            "placeholder": "AAAA"
         }
     },
     {
@@ -713,16 +714,16 @@
         "n_pag": 33,
         "tipo": "matrixPersonalizada",
         "titulo": "Indique si ha trabajado alguna vez en alguna de las siguientes instituciones distintas a :",
-        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigación o visitas)",
+        "subTitulo": "(Tenga en cuenta que se distingue entre trabajo y estancias de estudios, de investigaci\u00f3n o visitas)",
         "opciones": {
-            "98": "Una universidad o centro de investigación en otro país",
-            "99": "Una empresa o entidad privada en otro país",
-            "100": "Un organismo internacional o una administración en otro país",
-            "101": "Una universidad pública",
+            "98": "Una universidad o centro de investigaci\u00f3n en otro pa\u00eds",
+            "99": "Una empresa o entidad privada en otro pa\u00eds",
+            "100": "Un organismo internacional o una administraci\u00f3n en otro pa\u00eds",
+            "101": "Una universidad p\u00fablica",
             "102": "Una universidad privada",
-            "103": "Un centro de investigación público",
-            "104": "Otra institución de la administración (estatal, autonómica o local)",
-            "105": "Una institución privada sin ánimo de lucro"
+            "103": "Un centro de investigaci\u00f3n p\u00fablico",
+            "104": "Otra instituci\u00f3n de la administraci\u00f3n (estatal, auton\u00f3mica o local)",
+            "105": "Una instituci\u00f3n privada sin \u00e1nimo de lucro"
         }
     },
     {
