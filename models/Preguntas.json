@@ -12,9 +12,6 @@
             "4": "S\u00ed trabajo aqu\u00ed",
             "5": "Que te parece $estudio",
             "6": "Me gusta el $estudio"
-        },
-        "filtro": {
-            "2": "3"
         }
     },
     {
@@ -57,6 +54,9 @@
             "14": "Conciliaci\u00f3n, cuidado u otras responsabilidades familiares",
             "15": "Motivos personales",
             "16": "Otros"
+        },
+        "filtro": {
+            "1": "2"
         }
     },
     {
