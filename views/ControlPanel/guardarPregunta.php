@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
 
-    $archivo = $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/preguntas.json';
+    $archivo =  __DIR__ . '/../../models/Preguntas.json';
     if (file_exists($archivo)) {
         $preguntas = json_decode(file_get_contents($archivo), true);
 

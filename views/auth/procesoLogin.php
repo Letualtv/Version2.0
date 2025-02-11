@@ -1,7 +1,7 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/controller/PreguntasController.php';
+include __DIR__ . '/../../config/db.php';
+include __DIR__ . '/../../controller/PreguntasController.php';
 
 $errorMessage = "";
 ini_set('display_errors', 1);
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $lastPage = 1; // Por defecto, redirigir a la página 1
             if ($respuestasResult) {
                 // Calcular la última página completada basándose en las respuestas
-                $preguntas = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/preguntas.json'), true);
+                $preguntas = json_decode(file_get_contents(__DIR__ . '/../../models/Preguntas.json'), true);
                 $paginas = array_unique(array_column($preguntas, 'n_pag'));
                 sort($paginas);
 

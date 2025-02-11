@@ -17,9 +17,9 @@
     <nav class="navbar navbar-light my-2">
         <div class="container-fluid">
             <div class="navbar-brand" href="#">
-                <span class="h4">Panel de control</span> - <span class="font-monospace"><?php include 'visualizadorVersion.php'; ?></span>
+                <span class="h4">Panel de control</span> - <span class="font-monospace"><?php include __DIR__ . '/visualizadorVersion.php'; ?></span>
             </div>
-            <img src="/version2.0/public/img/2.png" alt="" width="180" class="d-inline-block align-text-top ms-auto">
+            <img src="/assets/img/2.png" alt="" width="180" class="d-inline-block align-text-top ms-auto">
         </div>
     </nav>
 
@@ -78,16 +78,16 @@
         </div>
     </footer>
     <!-- Scripts -->
-    <script src="./js/agregarEliminar.js"></script>
-    <script src="./js/jumpRules.js"></script>
-    <script src="./js/admin_variables.js"></script>
-    <script src="./js/confBorrarCargPreguntas.js"></script>
-    <script src="./js/cargarEditarGuardar.js"></script>
+    <script src="js/agregarEliminar.js"></script>
+    <script src="js/jumpRules.js"></script>
+    <script src="js/admin_variables.js"></script>
+    <script src="js/confBorrarCargPreguntas.js"></script>
+    <script src="js/cargarEditarGuardar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-    <script src="./js/exportar.js"></script>
+    <script src="js/exportar.js"></script>
 
 </body>
 

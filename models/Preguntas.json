@@ -792,16 +792,5 @@
             }
         },
         "subTitulo": ""
-    },
-    {
-        "id": 117,
-        "n_pag": 38,
-        "tipo": "radio",
-        "titulo": "Ya hemos acabado, \u00bfDesea que le enviemos los resultados del estudio?",
-        "opciones": {
-            "1": "S\u00ed",
-            "2": "No"
-        },
-        "subTitulo": ""
     }
 ]

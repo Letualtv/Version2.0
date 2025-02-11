@@ -44,7 +44,7 @@ if ($resultado['error']) {
     <?php include __DIR__ . '/../../includes/navigationPregunta.php'; ?>
     <div class="container my-4 col-12 col-lg-10">
         <form class="card" action="?n_pag=<?= htmlspecialchars($_GET['n_pag'] ?? 1) ?>" method="POST" style="min-height: 75vh;">
-            <?php include 'vistaCuestionario.php'; ?>
+            <?php include __DIR__ . '/vistaCuestionario.php'; ?>
         </form>
     </div>
     <?php include __DIR__ . '/../../includes/footerPregunta.php'; ?>

@@ -33,7 +33,7 @@ class PreguntasController
         if (empty($preguntasEnPagina)) {
             return [
                 'error' => true,
-                'view' => $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/errors/errorPregunta.php',
+                'view' => __DIR__ . '/../views/errors/errorPregunta.php',
             ];
         }
 
@@ -73,7 +73,7 @@ class PreguntasController
                 'nextPag' => $paginacion['nextPag'],
                 'progreso' => $progreso,
             ],
-            'view' => $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/cuestionario.php',
+            'view' => __DIR__ . '/../views/survey/cuestionario.php',
         ];
     }
 
@@ -98,7 +98,7 @@ class PreguntasController
     public function obtenerPreguntas(): array
     {
         // Ruta al archivo de preguntas
-        $archivo = $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/preguntas.json';
+        $archivo = __DIR__ . '/../models/Preguntas.json';
 
         // Verificar si el archivo existe
         if (!file_exists($archivo)) {
@@ -110,7 +110,7 @@ class PreguntasController
         $json = file_get_contents($archivo);
 
         // Cargar las variables globales desde variables.php
-        $variablesFile = $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/variables.php';
+        $variablesFile = __DIR__ . '/../models/variables.php';
         if (!file_exists($variablesFile)) {
             throw new Exception("El archivo de variables no existe.");
         }

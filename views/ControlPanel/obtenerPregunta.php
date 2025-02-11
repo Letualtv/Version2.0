@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $archivo = $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/preguntas.json';
+    $archivo = __DIR__ . '/../models/Preguntas.json';
     if (file_exists($archivo)) {
         $preguntas = json_decode(file_get_contents($archivo), true);
         foreach ($preguntas as $pregunta) {
