@@ -66,6 +66,6 @@ include __DIR__ . '/../../includes/navigation.php';
     } */
 </script>
 
-<?php include './../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'; ?>
 
 </body>

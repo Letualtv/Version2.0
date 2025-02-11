@@ -8,13 +8,13 @@
 <?php
 session_start();
 
-include $_SERVER['DOCUMENT_ROOT'] . '/version2.0/controller/PreguntasController.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
-$variables = include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/models/variables.php';
+include __DIR__ . '/../../controller/PreguntasController.php';
+include_once  __DIR__ . '/../../config/db.php';
+$variables = include_once  __DIR__ . '/../../models/variables.php';
 
 // Asegúrate de que el `clave_id` esté disponible en la sesión
 if (!isset($_SESSION['clave'])) {
-    header('Location: /version2.0/views/errors/errorClave.php');
+    header('Location: /../views/errors/errorClave.php');
     exit;
 }
 
@@ -41,12 +41,12 @@ if ($resultado['error']) {
 ?>
 
 <body class="d-flex flex-column min-vh-100">
-    <?php include './../includes/navigationPregunta.php'; ?>
+    <?php include __DIR__ . '/../../includes/navigationPregunta.php'; ?>
     <div class="container my-4 col-12 col-lg-10">
         <form class="card" action="?n_pag=<?= htmlspecialchars($_GET['n_pag'] ?? 1) ?>" method="POST" style="min-height: 75vh;">
             <?php include 'vistaCuestionario.php'; ?>
         </form>
     </div>
-    <?php include './../includes/footerPregunta.php'; ?>
+    <?php include __DIR__ . '/../../includes/footerPregunta.php'; ?>
 </body>
 </html>

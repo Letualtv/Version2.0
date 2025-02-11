@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/config/db.php';
+include_once __DIR__ . '/../config/db.php';
 
 class PreguntasController
 {

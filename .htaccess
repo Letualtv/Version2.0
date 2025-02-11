@@ -1,17 +1,11 @@
 <IfModule mod_rewrite.c>
-    # Activa el motor de reescritura
     RewriteEngine On
-    RewriteBase /Version2.0/public/
-    
-    # Deshabilita MultiViews para evitar conflictos con URLs similares
-    Options -MultiViews
+    RewriteBase /version2.0/
 
-    # Redirigir todas las solicitudes a index.php si no son archivos o directorios existentes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [L]
 
-    # Opcional: Rutas amigables específicas
     RewriteRule ^info$ index.php?uri=/info [L,QSA]
     RewriteRule ^faq$ index.php?uri=/faq [L,QSA]
     RewriteRule ^cookie$ index.php?uri=/cookie [L,QSA]

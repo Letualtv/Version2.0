@@ -1,5 +1,6 @@
 <body class="d-flex flex-column min-vh-100">
-    <?php include './../includes/navigation.php';
+    <?php include __DIR__ . '/../../includes/navigation.php';
+;
     ?>
     <div class="container">
         <div class="d-block text-center mx-auto mt-5">
@@ -9,5 +10,6 @@
             <a href="inicio" ><button class="btn btn-primary text-white">Regresar a la página principal</button></a>
         </div>
     </div>
-    <?php include './../includes/footer.php'; ?>
+    <?php include __DIR__ . '/../../includes/footer.php';
+ ?>
 </body>

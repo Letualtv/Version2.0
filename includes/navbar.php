@@ -4,17 +4,18 @@
             <?php
 
             
-            // Directorio de imágenes
-            $dir = 'img/';
 
-            if ($handle = opendir($dir)) {
-                while (false !== ($file = readdir($handle))) {
-                    if (in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'])) {
-                        echo '<img class="mx-1 my-2 my-lg-0 img-fluid img-responsive-60" src="' . $dir . $file . '" alt="' . pathinfo($file, PATHINFO_FILENAME) . '" title="' . pathinfo($file, PATHINFO_FILENAME) . '">';
-                    }
-                }
-                closedir($handle);
-            }
+$dir = __DIR__ . '/../assets/img/';
+
+if ($handle = opendir($dir)) {
+    while (false !== ($file = readdir($handle))) {
+        if (in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'])) {
+            echo '<img class="mx-1 my-2 my-lg-0 img-fluid img-responsive-60" src="/Version2.0/assets/img/' . $file . '" alt="' . pathinfo($file, PATHINFO_FILENAME) . '" title="' . pathinfo($file, PATHINFO_FILENAME) . '">';
+        }
+    }
+    closedir($handle);
+}
+
             ?>
             <style>
                 .img-responsive-60 {
@@ -46,14 +47,14 @@
                 </button>
 
                 <a class="navbar-brand d-lg-none" href="inicio">
-                    <img src="img/2.png" alt="Logo" height="40">
+                    <img src="/version2.0/assets/img/2.png" alt="Logo" height="40">
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <?php foreach ($menuItems as $url => $title): ?>
                             <li class="nav-item me-3">
-                                <a class="nav-link <?= $currentUrl === $url ? 'active' : '' ?>" href="<?= $url ?>"><?= $title ?></a>
+                            <a class="nav-link <?= ($currentUrl === $url || ($currentUrl === '' && $url === 'inicio')) ? 'active' : '' ?>" href="<?= $url ?>"><?= $title ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -76,6 +77,7 @@
         <div class="container mt-3">
             <?php
             switch ($currentUrl) {
+                case "":
                 case "inicio":
                     echo "Bienvenido al estudio INNOQUAL, una evaluación de las características de las instituciones que contribuyen a un mejor desempeño de sus funciones.";
                     break;

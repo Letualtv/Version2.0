@@ -10,7 +10,7 @@
     <div class="container text-center my-5">
         <h1>404 - Página no encontrada</h1>
         <p>Lo sentimos, no pudimos encontrar lo que estabas buscando.</p>
-        <a href="/Version2.0/public/" class="btn btn-primary">Volver al inicio</a>
+        <a href="inicio" class="btn btn-primary">Volver al inicio</a>
     </div>
 </body>
 </html>

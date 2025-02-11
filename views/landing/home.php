@@ -1,18 +1,20 @@
 <body class="d-flex flex-column min-vh-100">
 
-    <?php
-    $pageTitle = "Inicio";
-    include './../includes/navigation.php';
- 
-    session_start();  // Iniciar sesión
-    session_unset();  // Elimina todas las variables de sesión
-    session_destroy();  // Destruye la sesión completamente
-    
-    // Redirigir al landing page
-    header("Location: Version2.0/public/inicio");  // Ajusta esta URL a tu página de aterrizaje
+<?php
+// Iniciar sesión
+session_start();
+session_unset();  // Elimina todas las variables de sesión
+session_destroy();  // Destruye la sesión completamente
 
-    
-    ?>
+// Definir el título de la página
+$pageTitle = "Inicio";
+
+// Incluir el archivo de navegación
+include __DIR__ . '/../../includes/navigation.php';
+
+// Incluir el contenido de la página de inicio
+require_once __DIR__ . '/../landing/home.php';
+?>
 
     <div class="container  mb-3">
         <div class="card mx-auto ">
@@ -46,6 +48,6 @@
         </div>
     </div>
 
-    <?php include './../includes/footer.php'; ?>
+    <?php include __DIR__ . '/../../includes/footer.php'; ?>
 
 </body>

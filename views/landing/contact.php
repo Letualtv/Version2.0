@@ -2,7 +2,7 @@
 
     <?php
     $pageTitle = "Contactar";
-    include './../includes/navigation.php';
+    include __DIR__ . '/../../includes/navigation.php';
 
     ?>
 
@@ -21,6 +21,6 @@
         </div>
     </div>
 
-    <?php include './../includes/footer.php'; ?>
+    <?php include __DIR__ . '/../../includes/footer.php'; ?>
 
 </body>

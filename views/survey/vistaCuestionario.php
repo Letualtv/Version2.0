@@ -30,31 +30,31 @@
         <?php
         switch ($pregunta['tipo']) {
             case 'radio':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/radio.php';
+                include_once __DIR__ . '/../../views/survey/tipo_de_pregunta/radio.php';
                 break;
             case 'checkbox':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/checkbox.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/checkbox.php';
                 break;
             case 'numberInput':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/numberInput.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/numberInput.php';
                 break;
             case 'formSelect':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/formSelect.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/formSelect.php';
                 break;
             case 'matrix1':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/matrix1.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/matrix1.php';
                 break;
             case 'matrix2':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/matrix2.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/matrix2.php';
                 break;
             case 'matrix3':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/matrix3.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/matrix3.php';
                 break;
             case 'matrixPersonalizada':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/matrixPersonalizada.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/matrixPersonalizada.php';
                 break;
             case 'matrixPregunta':
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/version2.0/views/survey/tipo_de_pregunta/matrixPregunta.php';
+                include_once  __DIR__ . '/../../views/survey/tipo_de_pregunta/matrixPregunta.php';
                 break;
             default:
                 echo "<div class='alert alert-danger p-3' role='alert'><p><b>Error:</b> Tipo de pregunta no reconocido.</p><p>Posibles causas:</p><li>El archivo no existe.</li><li>El nombre no coincide con el de case.</li><li>La ubicación del archivo es correcta.</li></div>";
